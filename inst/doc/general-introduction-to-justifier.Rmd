@@ -1,0 +1,115 @@
+---
+title: "General introduction to justifier"
+author: "Gjalt-Jorn Peters"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{General introduction to justifier}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The `justifier` package offers a flexible compromise that enables thorough documentation that is both human- and machine-readable. This allows learning from the decisions taken in one or multiple projects, and making clear where decisions were based on strong versus weak justifications. What exactly comprises a strong or weak justification is of course greatly dependent on domain and context, and `justifier` provides for this. Justification frameworks for two specific cases have been provided in the vignettes 'justifier in behavior change intervention development' and 'justifier in study design'. This vignette provides a general introduction to `justifier`.
+
+In `justifier`, four types of information are distinguished:
+
+- `source`: A `source` is a document or other resource the contains more information about something. Commonly, `source`s will be journal articles, books, or reports, but they can be anything really.
+- `assertion`: An `assertion` is a statement that something is the case. An `assertion` will, if possible, be based on one or more `source`s. In `justifier`, an `assertion` is very similar to `assertion`s in the nanopublication ontology (see https://nanopub.com), in which case one could compare the `assertion`'s `description` plus the referenced `source`s or other `justifer` elements as its provenance.
+- `justification`: A `justification` is a justification of something or other. Generally, `justification`s will be used to justify `decision`s, but sometimes, you may want to justify something without it being tied to a specific decision.
+- `decision`: A `decision` is an explicit choice between one or more implicit or explicitly listed options. A `decision` should have one or more `justification`s which are each ideally based on one or more `assertion`s that each reference one or more `source`s.
+
+These `justifier` elements are specified in YAML fragments in plain-text files, that as convention have the extension `jmd` ('justifier markdown'). This enables including justifications right in one's minutes or meeting notes without having to use dedicated software - the only constraint this introduces is that one has to use Markdown for those minutes or notes. Markdowns combination of using a plain text format while allowing embedding of basic markup metadata (and the ability to extend that using HTML), and its popularity to produce reproducible reports and literature prorgamming documentation using the R Markdown framework, make Markdown an obvous choice for documentation if one desires to adhere to Open Science principles.
+
+The `justifier` package offers functions to extract and load these YAML fragments. This, of course, in itself doesn't have any added value. This added value is introduced by parsing the `justifier` elements in a specific context where, for example, the types of decisions can be organised hierarchically, and types of evidence can be ranked, to provide insight into the decisions in different phases or a process or in different projects in an organisation.
+
+## Justification frameworks
+
+To this end, `justifier` work with the concept of `justification frameworks`. These frameworks provide the context for the decisions and justifications. The `justification frameworks`, therefore, enable one to extend the `justifier` format to attach context to decisions, for example in terms of which part of a process they pertain to, or in terms of what part of the world they relate to. These contexts or domains are hierarchically structured within the `justification framework`. In addition to their position in the wider framework, each context can specify constraints for decisions in that context. When `justifier` processes a set of justifications in this framework, it will notice violations of this specification. Such values can achieve additional attributes, such as scores, ranks, or strings with comments. These attributes can then be aggregated for all justifications in a domain, or collapsed to lower levels of the context tree. This makes `justification frameworks` 'judgemental', where justifications in themselves are not judgemental; they simply document. However, when placed in a context, such justifications can be categorized as better or worse using the metadata provided by the `justification framework`.
+
+For example, imagine a social activity committee at a faculty at a university somewhere in the world. Since social cohesion is an important factor in staff happiness, it would make sense that such a vital organ as the social activity committee would decide to document their minutes using `justifier`, after all. In a meeting, they could decide to organise the next annual faculty outing as a bowling match, and to not include dinner, but include lunch. The underying reasoning could be that last year, there was a non-sporty activity, and the dinner got quite out of hand. These choices therefore cater to people's perceived need for variation and hopefully avoid embarrassing (but fun) scenarios like those witnessed last year.
+
+By imposing a `justification framework`, one could, for example, attach a 'decision quality' value to these decisions. Imagine a framework for a faculty that values democracy very highly. In this framework, decisions' justifications pertaining to the context of 'activity' have to have one of three values: 'survey under staff', 'discussion at staff meeting', or 'internally generated'. It is then possible to easily generate overview of types of justifications in different meetings. For example, it could, hypothetically, turn out to be the case that decision bodies at higher levels make more internally generated decisions, whereas decisions at lower levels are more often based on discussions with staff members.
+
+Two examples of such frameworks are provided in the 'justifier in behavior change intervention development' and 'justifier in study design' vignettes. 
+
+For example, when designing an empirical study, some form of data will often be gathered. In the design phase, therefore, decisions are taken as to the amount of data that will be required. These decisions share a role in the study design process, and once such context is clear, further specification of the decisions becomes possible. For example, for quantitative studies in psychology, a decision could pertain to whether sample size calculations are based on a frequentist approach, such as on null hpothesis significance testing, accuracy in parameter estimation, or a Bayesian approach.
+
+ For example, a framework could contain a context called `study type` that specifies that decisions in that context can only have one of two values: "confirmatory" or "exploratory". 
+
+In addition, the relative contextual information enables collapsing the justifi
+
+Justification frameworks can be specified in three ways. First, using YAML stored in a local file; second, using a spreadsheet stored in a local file; and third, using a spreadsheet loaded from Google Sheets. Of these, 
+
+### Common framework metadata specifications
+
+In justification frameworks, common metadata specifications are the following:
+
+- types of sources, assertions, justifications, and decisions
+- exhaustive lists of potential values
+- scores, weights, or ranks attached to these values
+
+These specifications can pertain either to `justifier` specifications within a given domain, but they can also hold for all `justifier` specifications that are loaded in a project. For example, it is possible to specify that all `sources` must have a `type`, and that that type must always be `team belief`, `expert consensus`, `target group consultation`, `qualitative study`, `quantitative study`, or `research synthesis`. `justifier` will then flag deviations.
+
+## Efficient specification and scope
+
+When specifying something for multiple justifications, the eponymous `justifier` element can be used, making that the fifth `justifier` element. Contents of a `justifier` element pertain to all other elements in a file (`scope: local`), or in a project directory (`scope: global`), or all files that are read by the `justifier` package in a project (`scope: universal`).
+
+For example, to specify that the `justification framework` is stored in file `justifier-framework-specification.jfs`, and that this framework should be applied to all justifications in this directory that do not have another framework attached:
+
+```
+---
+justifier:
+  framework: justifier-framework-specification.jfs
+  scope: global
+---
+```
+
+To specify that all justifications in this file are produced at date the sixth of March 2019:
+
+```
+---
+justifier:
+  date: 2019-03-06
+  scope: local
+---
+```
+
+The `type` metadata can be used to impose more constraints by providing conditions. For example, to specify that all decisions in the project of the type "global_design" must have either "experimental" or "observational" as value, one would use:
+
+```
+---
+justifier:
+  scope: universal
+  condition:
+    element: decision
+    type: global_method
+    values: ["experimental", "observational"]
+---
+```
+
+`justifier` will then the `type` of all decisions in the project. If a decision has the type "global_design", `justifier` will check whether whether it has a value and whether the value is "experimental" or "observational"; if not, `justifier` will indicate this.
+
+It is also possible to attach additional attributes to these values, such as scores or weights, by including another vector:
+
+```
+---
+justifier:
+  scope: universal
+  condition:
+    element: decision
+    type: global_method
+    values: ["experimental", "observational"]
+    scores: [1, 2]
+---
+```
+
+
+
+

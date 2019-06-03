@@ -1,0 +1,41 @@
+# Minutes of an Important Meeting
+
+*Date: 2019-05-26*
+
+This is an example of a file with minutes that includes embedded justificatios.
+
+This is is just minutes from the meeting. The meeting could be a lab meeting, for example.
+
+---
+justification:
+  -
+    id: decision1
+    project-id: wim
+    name: "last finalization study recruitment"
+    date: 2018-09-12
+    actors: ['Person, First', 'Person, Second']
+    description: We decided to use snowball sampling.
+    alternatives: ['only invite people we know', 'cast a wide net']
+    choice: 2
+    justification: more inclusive
+    specifications:
+---
+
+Here are some more meetings about fascinating discussions and important decisions.
+
+---
+justification:
+  -
+    id: decision2
+    project-id: wim
+    name: do list finalization study
+    date: 2018-09-12
+    actors: ['Kok, Gerjo', 'Peters, Louk', 'Crutzen, Rik', 'Peters, Gjalt-Jorn']
+    description: We decided to blablabla
+    alternatives: ['no', 'yes']
+    choice: 2
+    justification: more thorough
+    specifications:
+---
+
+This is the end of the meeting. All participants agree that this was a very productive meeting.

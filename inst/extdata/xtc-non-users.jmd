@@ -1,0 +1,59 @@
+# Adviesgroep interventie voor niet-gebruikers XTC
+
+---
+source:
+  -
+    id: phd_peters_xtc_determinants
+    label: "Peters, G. J. Y. (2008) Determinants of ecstasy use and harm reduction strategies: informing evidence-based intervention development. https://phdthesis.nl"
+    xdoi: isbn:9781409240716
+  -
+    id: phd_vervaeke_xtc_social
+    label: "Vervaeke, H. K. E. (2009) Initiation and continuation: social context and behavioural aspects of ecstasy use"
+assertion:
+  -
+    id: tryout_determinants_ranking_intention
+    label: Intention to try out XTC is an extremely strong predictor of trying out XTC (Cohen's d > 1, OR > 7)
+    source:
+      id: src:phd_peters_determinant_xtc_use
+      pp: 91
+  -
+    id: tryout_determinants_ranking_attitude
+    label: Attitude is the strongest predictor of intention to try out XTC (r = .67)
+    source:
+      id: src:phd_peters_determinant_xtc_use
+      pp: 91
+  -
+    id: notry_determinants_ranking_othersubstance
+    label: Already using some other substance is the strongest 'deterrent' of trying out ecstasy
+    source:
+      id: src:phd_vervaeke_xtc_social
+      pp: 36
+---
+
+
+
+- Hylke vragen naar ruwe data; effect sizes en betrouwbaarheidsintervallen van redenen om niet te gebruiken
+
+- 16-25 jarigen - dus 'onder 25' - wat is de eigenlijke 'grenswaarde', i.e. waar is 25 een proxy voor? ('uitgaanslevenintreders'?)
+
+- Stap 1 in de slides is niet stap 1; stap 1 zoals hij er nu staat hoort bij stap 2
+
+- stap 5 moet (volgens IM) eigenlijk vanaf het begin, niet pas na stappen 2/3
+
+- Zorgen:
+
+  - Persona - studie's?
+  - power voor pretest / sample size voor AIPE etc
+
+
+- Project loopt tot april 2021
+
+- Vertrouwelijkheid: Niemand zoekt pers op; alleen TI; na gang via adviescommissie
+
+- Focus op jongeren waar het gebruik mis gaat
+
+
+
+
+
+

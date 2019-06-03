@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Gjalt-Jorn Peters" />
+
+<meta name="date" content="2019-05-31" />
+
+<title>General introduction to justifier</title>
+
+
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#header {
+text-align: center;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">General introduction to justifier</h1>
+<h4 class="author"><em>Gjalt-Jorn Peters</em></h4>
+<h4 class="date"><em>2019-05-31</em></h4>
+
+
+
+<p>The <code>justifier</code> package offers a flexible compromise that enables thorough documentation that is both human- and machine-readable. This allows learning from the decisions taken in one or multiple projects, and making clear where decisions were based on strong versus weak justifications. What exactly comprises a strong or weak justification is of course greatly dependent on domain and context, and <code>justifier</code> provides for this. Justification frameworks for two specific cases have been provided in the vignettes ‘justifier in behavior change intervention development’ and ‘justifier in study design’. This vignette provides a general introduction to <code>justifier</code>.</p>
+<p>In <code>justifier</code>, four types of information are distinguished:</p>
+<ul>
+<li><code>source</code>: A <code>source</code> is a document or other resource the contains more information about something. Commonly, <code>source</code>s will be journal articles, books, or reports, but they can be anything really.</li>
+<li><code>assertion</code>: An <code>assertion</code> is a statement that something is the case. An <code>assertion</code> will, if possible, be based on one or more <code>source</code>s. In <code>justifier</code>, an <code>assertion</code> is very similar to <code>assertion</code>s in the nanopublication ontology (see <a href="https://nanopub.com" class="uri">https://nanopub.com</a>), in which case one could compare the <code>assertion</code>’s <code>description</code> plus the referenced <code>source</code>s or other <code>justifer</code> elements as its provenance.</li>
+<li><code>justification</code>: A <code>justification</code> is a justification of something or other. Generally, <code>justification</code>s will be used to justify <code>decision</code>s, but sometimes, you may want to justify something without it being tied to a specific decision.</li>
+<li><code>decision</code>: A <code>decision</code> is an explicit choice between one or more implicit or explicitly listed options. A <code>decision</code> should have one or more <code>justification</code>s which are each ideally based on one or more <code>assertion</code>s that each reference one or more <code>source</code>s.</li>
+</ul>
+<p>These <code>justifier</code> elements are specified in YAML fragments in plain-text files, that as convention have the extension <code>jmd</code> (‘justifier markdown’). This enables including justifications right in one’s minutes or meeting notes without having to use dedicated software - the only constraint this introduces is that one has to use Markdown for those minutes or notes. Markdowns combination of using a plain text format while allowing embedding of basic markup metadata (and the ability to extend that using HTML), and its popularity to produce reproducible reports and literature prorgamming documentation using the R Markdown framework, make Markdown an obvous choice for documentation if one desires to adhere to Open Science principles.</p>
+<p>The <code>justifier</code> package offers functions to extract and load these YAML fragments. This, of course, in itself doesn’t have any added value. This added value is introduced by parsing the <code>justifier</code> elements in a specific context where, for example, the types of decisions can be organised hierarchically, and types of evidence can be ranked, to provide insight into the decisions in different phases or a process or in different projects in an organisation.</p>
+<div id="justification-frameworks" class="section level2">
+<h2>Justification frameworks</h2>
+<p>To this end, <code>justifier</code> work with the concept of <code>justification frameworks</code>. These frameworks provide the context for the decisions and justifications. The <code>justification frameworks</code>, therefore, enable one to extend the <code>justifier</code> format to attach context to decisions, for example in terms of which part of a process they pertain to, or in terms of what part of the world they relate to. These contexts or domains are hierarchically structured within the <code>justification framework</code>. In addition to their position in the wider framework, each context can specify constraints for decisions in that context. When <code>justifier</code> processes a set of justifications in this framework, it will notice violations of this specification. Such values can achieve additional attributes, such as scores, ranks, or strings with comments. These attributes can then be aggregated for all justifications in a domain, or collapsed to lower levels of the context tree. This makes <code>justification frameworks</code> ‘judgemental’, where justifications in themselves are not judgemental; they simply document. However, when placed in a context, such justifications can be categorized as better or worse using the metadata provided by the <code>justification framework</code>.</p>
+<p>For example, imagine a social activity committee at a faculty at a university somewhere in the world. Since social cohesion is an important factor in staff happiness, it would make sense that such a vital organ as the social activity committee would decide to document their minutes using <code>justifier</code>, after all. In a meeting, they could decide to organise the next annual faculty outing as a bowling match, and to not include dinner, but include lunch. The underying reasoning could be that last year, there was a non-sporty activity, and the dinner got quite out of hand. These choices therefore cater to people’s perceived need for variation and hopefully avoid embarrassing (but fun) scenarios like those witnessed last year.</p>
+<p>By imposing a <code>justification framework</code>, one could, for example, attach a ‘decision quality’ value to these decisions. Imagine a framework for a faculty that values democracy very highly. In this framework, decisions’ justifications pertaining to the context of ‘activity’ have to have one of three values: ‘survey under staff’, ‘discussion at staff meeting’, or ‘internally generated’. It is then possible to easily generate overview of types of justifications in different meetings. For example, it could, hypothetically, turn out to be the case that decision bodies at higher levels make more internally generated decisions, whereas decisions at lower levels are more often based on discussions with staff members.</p>
+<p>Two examples of such frameworks are provided in the ‘justifier in behavior change intervention development’ and ‘justifier in study design’ vignettes.</p>
+<p>For example, when designing an empirical study, some form of data will often be gathered. In the design phase, therefore, decisions are taken as to the amount of data that will be required. These decisions share a role in the study design process, and once such context is clear, further specification of the decisions becomes possible. For example, for quantitative studies in psychology, a decision could pertain to whether sample size calculations are based on a frequentist approach, such as on null hpothesis significance testing, accuracy in parameter estimation, or a Bayesian approach.</p>
+<p>For example, a framework could contain a context called <code>study type</code> that specifies that decisions in that context can only have one of two values: “confirmatory” or “exploratory”.</p>
+<p>In addition, the relative contextual information enables collapsing the justifi</p>
+<p>Justification frameworks can be specified in three ways. First, using YAML stored in a local file; second, using a spreadsheet stored in a local file; and third, using a spreadsheet loaded from Google Sheets. Of these,</p>
+<div id="common-framework-metadata-specifications" class="section level3">
+<h3>Common framework metadata specifications</h3>
+<p>In justification frameworks, common metadata specifications are the following:</p>
+<ul>
+<li>types of sources, assertions, justifications, and decisions</li>
+<li>exhaustive lists of potential values</li>
+<li>scores, weights, or ranks attached to these values</li>
+</ul>
+<p>These specifications can pertain either to <code>justifier</code> specifications within a given domain, but they can also hold for all <code>justifier</code> specifications that are loaded in a project. For example, it is possible to specify that all <code>sources</code> must have a <code>type</code>, and that that type must always be <code>team belief</code>, <code>expert consensus</code>, <code>target group consultation</code>, <code>qualitative study</code>, <code>quantitative study</code>, or <code>research synthesis</code>. <code>justifier</code> will then flag deviations.</p>
+</div>
+</div>
+<div id="efficient-specification-and-scope" class="section level2">
+<h2>Efficient specification and scope</h2>
+<p>When specifying something for multiple justifications, the eponymous <code>justifier</code> element can be used, making that the fifth <code>justifier</code> element. Contents of a <code>justifier</code> element pertain to all other elements in a file (<code>scope: local</code>), or in a project directory (<code>scope: global</code>), or all files that are read by the <code>justifier</code> package in a project (<code>scope: universal</code>).</p>
+<p>For example, to specify that the <code>justification framework</code> is stored in file <code>justifier-framework-specification.jfs</code>, and that this framework should be applied to all justifications in this directory that do not have another framework attached:</p>
+<pre><code>---
+justifier:
+  framework: justifier-framework-specification.jfs
+  scope: global
+---</code></pre>
+<p>To specify that all justifications in this file are produced at date the sixth of March 2019:</p>
+<pre><code>---
+justifier:
+  date: 2019-03-06
+  scope: local
+---</code></pre>
+<p>The <code>type</code> metadata can be used to impose more constraints by providing conditions. For example, to specify that all decisions in the project of the type “global_design” must have either “experimental” or “observational” as value, one would use:</p>
+<pre><code>---
+justifier:
+  scope: universal
+  condition:
+    element: decision
+    type: global_method
+    values: [&quot;experimental&quot;, &quot;observational&quot;]
+---</code></pre>
+<p><code>justifier</code> will then the <code>type</code> of all decisions in the project. If a decision has the type “global_design”, <code>justifier</code> will check whether whether it has a value and whether the value is “experimental” or “observational”; if not, <code>justifier</code> will indicate this.</p>
+<p>It is also possible to attach additional attributes to these values, such as scores or weights, by including another vector:</p>
+<pre><code>---
+justifier:
+  scope: universal
+  condition:
+    element: decision
+    type: global_method
+    values: [&quot;experimental&quot;, &quot;observational&quot;]
+    scores: [1, 2]
+---</code></pre>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

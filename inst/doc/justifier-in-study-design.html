@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Gjalt-Jorn Peters" />
+
+<meta name="date" content="2019-05-31" />
+
+<title>Using justifier in study design</title>
+
+
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#header {
+text-align: center;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Using justifier in study design</h1>
+<h4 class="author"><em>Gjalt-Jorn Peters</em></h4>
+<h4 class="date"><em>2019-05-31</em></h4>
+
+
+
+<p>If you haven’t read the general introduction to <code>justifier</code> yet, you may want to start there.</p>
+<div id="why-justify" class="section level1">
+<h1>Why justify?</h1>
+<p>Planning a scientific study in psychology entails taking very many decisions. Some of these decisions are taken without thinking about it: for example, given the default to use either Type II (SPSS) or Type III (R) Sums of Squares in Analysis of Variance analyses, users of either package will sometimes follow that default without realising this constitutes an implicit decision. However, ideally, researchers make these decisions deliberately, and ideally, they have justifications for these decisions.</p>
+<p>In fact, a recent blog post called upon researchers in psychology to #JustifyEverything.</p>
+<!--- ADD LINK and quote!!!! -->
+<p>And indeed, if researchers would justify all their decisions, this has the potential of yielding a wealth of benefits. First, researchers may become more aware of the decisions they take, enabling them to take those decisons more deliberately. This would decrease the much-lamented unquestioning reliance on defaults in the used software. Second, review of study proposals has the potential to become much more efficient, if the decisions that were taken and their justifications can be extracted and parsed automatically. Third, once justifing everything becomes common practice, analysing these decisions and their justifications can be very insightful, for example showing where training of researchers may be most beneficial (i.e. areas where decisions and their justifications are based on outdated assumptions).</p>
+<p>However, for this potential to be realised, justifications need to be documented in a uniform format. Ideally, this is a format that is simultaneously userfriendly enough to be used by humans as they document their meeting minutes or notes, and structured enough to be machine-readable so as to enable automatic extraction and parsing. The <code>justifier</code> package provides this format. The basic introduction of <code>justifier</code> is in the general introduction vignette, and this vignette presents a simple justification framework for planning psychological studies.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+</div>
+<div id="study-design-decisions" class="section level1">
+<h1>Study design decisions</h1>
+<p>In this example framework, we will limit ourselves to four decisions that a researcher always takes for any study they undertake. The first is to establish the research question or questions, or if appropriate, hypothesis or hypothesis. The second is to determine which method wil be used. The third is deciding how many data points need to be sampled (for example, how many participants will be recruited). The fourth is whether to preregister the study.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>The example study is an applied study into the social-cognitive determinants of getting one’s ecstasy pills tested. In the Netherlands, there are drug test labs where once can bring drugs to anonymously get those tested and find out the ingredients and their dose. Ectasy pills ideally contain only one active ingredient: 3,4-methylenedioxymethamphetamin (MDMA). However, pills can contains varying doses of MDMA (in 2017, the mean MDMA dose was 187mg of MDMA; 1% of the pills had a dose under 35mg of MDMA and 70% over 140mg of mDMA). In addition, pills can contain contaminants (in 2017, 87.6% of the pills tested in the Netherlands contained only MDMA as active ingrdient).</p>
+<p>This example is chosen for two reasons. First, it’s my topic, so this way I don’t have to learn about another domain to write it :-) Second, it’s the same example as the one used in the intervention development vignette, so that readers won’t have to familiarize themselves with two scenarios.</p>
+<div id="research-question" class="section level2">
+<h2>Research question</h2>
+<p>The first decision is in a way the simplest one: what exactly does one want to study? However, this research question isn’t arbitrary. In this world of finite, often scarce, resources, justification of why to do a study in the first place is perhaps one of the most important considerations.</p>
+<p>In this applied example study, the research question is <code>&quot;What are the most important determinants of getting one&#39;s ecstasy tested?&quot;</code>. The answer to this research question is required to develop and effective interventions to promote ecstasy pill testing. It is important to promote ecstasy pill testing because if ecstasy users do not get their pills tested, they are exposed to two risks. First, they may unknowingly ingest contaminants; and second, proper dosing (~ 1-1.5 mg of MDMA per kg of body weight) becomes hard if the dose in a pill is unknown. To minimize the likelihood of incidents and accidental intoxication, it is important that ecstasy users get their pills tested.</p>
+</div>
+<div id="method" class="section level2">
+<h2>Method</h2>
+<p>Often, the appropriate method follows from a combination of the type of research question and knowledge about the relevant domain. Some research questions require qualitative research; some quantitative research; and some are best answered by research synthesis. However, within each of these, many choices have to be made. To name a few examples, for qualitative research, which analysis approach is most appropriate and how to sample participants; for quantitative research, whether to use an experimental design or not and which operationalisations to use; and for a research syntesis, which bibliographic databases to use and whether to extract effect size esimates.</p>
+<p>In the example study, there are two kinds of considerations. On the one hand, logistical considerations (available time and money. On the other hand, available prior knowledge from earlier research. On the one hand, one needs to know enough about potential determinants and sub-determinants to develop a sufficiently comprehensive questionnaire. On the other hand, one can keep doing qualitative studies and learning a little bit more ad infinitum, while in reality, one often has to work with (severely) limited funds and time.</p>
+<pre><code>decision: 
+  context: global_study_method
+  value: quantitative
+  id: study_method
+  label: &quot;We will conduct a quantitative study.&quot;
+  justification:
+    -
+      id: enough_known_about_testing_determinants
+      label: &quot;We have enough information available to develop a questionnaire that is likely to measure the most important determinants and sub-determinants of XTC testing.&quot;
+      assertion:
+        -
+          id: testing_xtc_is_reasoned
+          source: phd_peters_2008
+          label: &quot;Previous research indicates that getting one&#39;s ecstasy tested (or not) is largely a reasoned behavior&quot;
+        -
+          id: there_is_qualitative_research_about_testing
+          source: phd_peters_2008
+          label: &quot;There exists qualitative research about why people get their ecstasy tested&quot;
+    -
+      id: limited_time
+      label: &quot;We have to produce the ultimate intervention before the end of 2019.&quot;
+      source:
+        id: project_propoal
+        label: &quot;The original proposal for this project as funded by our funder.&quot;</code></pre>
+</div>
+<div id="sample-size" class="section level2">
+<h2>Sample size</h2>
+<p>Once the method is clear, for empirical research, it becomes possible to plan the required sample size. For example, in this example study, we aim to map the importance of a series of behavioral determinants to then inform intervention development. That means we desire sufficiently accurate estimates of determinants’ relevance.</p>
+<pre><code>decision: 
+  context: global_study_method
+  value: 400
+  id: study_sample_size
+  label: &quot;We aim to recruit around 400 participants.&quot;
+  justification:
+    -
+      id: enough_known_about_testing_determinants
+      label: &quot;We have enough information available to develop a questionnaire that is likely to measure the most important determinants and sub-determinants of XTC testing.&quot;
+      assertion:
+        -
+          id: testing_xtc_is_reasoned
+          source: phd_peters_2008
+          label: &quot;Previous research indicates that getting one&#39;s ecstasy tested (or not) is largely a reasoned behavior&quot;
+        -
+          id: there_is_qualitative_research_about_testing
+          source: phd_peters_2008
+          label: &quot;There exists qualitative research about why people get their ecstasy tested&quot;
+    -
+      id: limited_time
+      label: &quot;We have to produce the ultimate intervention before the end of 2019.&quot;
+      source:
+        id: project_propoal
+        label: &quot;The original proposal for this project as funded by our funder.&quot;</code></pre>
+</div>
+<div id="preregistration" class="section level2">
+<h2>Preregistration</h2>
+<p>Preregistation is an excellent example of a decision that is taken for every single study, yet often without the researchers’ awareness.</p>
+</div>
+</div>
+<div id="example-study-decisions-in-justifier-format" class="section level1">
+<h1>Example study decisions in <code>justifier</code> format</h1>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Note that this framework is intended as an <em>example</em>, not as an authoritative framework that should be relied on in the wild.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>Again, this is a gross oversimplification; these are not the most important decisions, but they have been chosen because they cover different kinds of decisions, with different kinds of evidence available.<a href="#fnref2" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

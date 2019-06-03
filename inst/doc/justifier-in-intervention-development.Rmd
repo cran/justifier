@@ -1,0 +1,65 @@
+---
+title: "Using justifier in behavior change intervention development"
+author: "Gjalt-Jorn Peters"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using justifier in behavior change intervention development}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Behavior change is extremely hard. Or rather, behavior change experts are only involved for behavior change challenges that others have failed at repeatedly, which boils down to the same thing when it comes to behavior change intervention development. Because this is complicated, a series of tools has been developed to assist with different aspects of the intervention development process.
+
+The Intervention Mapping protocol is one such tool. It can be used for intervention development, analysis (and potentially improvement or adaptation) of existing interventions, and for description of the intervention development process or products. It is extremely comprehensive, which is at once one or its core strengths and main weaknesses. On the one hand, if one follows the Intervention Mapping protocol, one is assured of a very thorough development process, where all decisions are solidly informed by theory and evidence. On the other hand, exactly because of this, Intervention Mapping is often perceived as unwieldy and too slow to follow in practice. Nonetheless, Intervention Mapping has been used for the development of a large number of interventions (https://interventionmapping.com/references lists around 1000 articles describing around 300 interventions).
+
+In theory, each of these development processes are underlied by a wealth of insights and lessons about the many choices that have to be made during the intervention development procedure. Yet, despite Intervention Mapping's highly systematic nature, the decisions that are taken and their justifications are poorly documented. This is not unique to interventions based on Intervention Mapping. In fact, the poor state of 
+
+To include the decision to select a target behavior, the following fragment can be used:
+
+```{r echo=TRUE, eval=FALSE}
+---
+decision:
+  id: target_behavior_selection
+  type: selection_target_behavior
+  label: "The target behavior is getting ecstasy tested"
+  description: "Room for more explanation about this decision."
+  date: 2019-09-03
+  justification:
+    id: importance_of_knowing_pill_contents
+    label: "Knowing pill contents is important"
+    description: "Risk of ecstasy use increases as a higher dose is consumed (and adulterants can be toxic)."
+    source:
+      id: example_source_1
+      label: "Some example source"
+---
+```
+
+To justify choosing a sub-behavior, 
+
+
+
+To justify choosing a determinant for a sub-behavior,
+
+To justify choosing a sub-determinant underlying a determinant
+
+To justify choosing a behavior change principle
+
+To justify choosing an application
+
+To justify the conditions for effectiveness
+
+
+There are many more choices to make during intervention development, but two are obviously omitted here and so deserve mentioning. Both capture those factors that contribute to behavior that are not part of the target population's psychology: their environment. First, the environmental conditions themselves; and second, the environmental agent(s) under whose control those enviromental condition(s) are. These are not included in this vignette because this vignette is based on acyclic behavior change diagrams (ABCDs), which are a tool to work with behavior change efforts that directly target individuals; other tools exist for other aspects of intervention development.
+
+
+
+
+

@@ -1,0 +1,424 @@
+# Party Panel 19.1 target behavior selection
+
+In this `justifier` file, we describe the `decision`s we take to ultimately select a target behavior for the Party Panel round in 2019 about sleep (Party Panel 19.1 or PP19.1).
+
+Each `decision` is justified with one or more `justification`s, which are each based one one or more `assertion`s, which are each based on one or more `source`s. A `source` can be, for example, a scientific article, a report, or a book; a statement by an individual or the result of an expert consensus procedure; or the results of a quick consulting of target population members. An `assertion` is a statement of a fact, something we believe to be the case (potentially erroneously, but ideally always traceable back to one or more `source`s). A `justification` allows integrating multiple asssertions, and multiple `justification`s can be used to justify a decision.
+
+These four elements are documented in a subset of YAML that can be understood by the `justifier` package, and these YAML fragments are embedded in Markdown files to produce files like this: `jmd` files, or 'justified markdown' files. Each element will generally have the following fields with content:
+
+- `id`: A unique identifier that allows referring to this element. An `id` may never start with a number (i.e. `0-9`) and may only contain:
+  - Lowercase Latin letters (`A-Z`);
+  - Uppercase Latin letters (`a-z`);
+  - Numbers (`0-9`);
+  - Underscores (`_`).
+- `label`: A label is a human-readable 'name' for a `source`, `assertion`, `justification`, or `decision`. It should briefly describe the core of the element.
+- `description`: A description allows for more detailed information about an element.
+
+These `justifier` elements always have to be enclosed by two delimiters, specifically, two lines that contain only three dashed (`---`). There are no constraints for anything outside two delimiters, like this text - but it is strongly advised to stick to Markdown.
+
+Elements can be specified either one by one, in which case they start with naming their type followed by a colon (e.g. `source:`), after which the fields in that element are indented by two spaces, and each field is followed by its value (for longer or complexer strings, it's wise to quote them, to avoid using characters that the YAML parser considers part of the YAML specification).
+
+If you want to specify multiple elements of the same type, you can do this by only listing their name once, and then using dashes and extra indenting by two spaces to create a list (you cannot specify multiple elements with the same name in YAML).
+
+---
+source:
+  -
+    id: source_Diekelmann
+    label: "Diekelmann & Born (2010) The memory function of sleep."
+    xdoi: doi:10.1038/nrn2762
+    type: "Journal article"
+  -
+    id: source_Gais
+    label: "Gais (2003) Sleep after learning aids memory recall."
+    xdoi: doi:10.1101/lm.132106
+    type: "Journal article"
+  -
+    id: source_Menz
+    label: "Menz et al (2013) The role of sleep and sleep deprivation in consolidating fear memories."
+    xdoi: doi:10.1016/j.neuroimage.2013.03.001
+    type: "Journal article"
+  -
+    id: source_Holland
+    label: "Holland & Lewis (2007) Emotional memory: selective enhancement by sleep."
+    xdoi: doi:10.1016/j.cub.2006.12.033
+    type: "Journal article"
+  -
+    id: source_Graves
+    label: "Graves (2003) Sleep deprivation selectively impairs memory consolidation for contextual fear conditioning."
+    xdoi: doi:10.1101/lm.48803
+    type: "Journal article"
+  -
+    id: source_Frey
+    label: "Frey et al (2007) The effects of 40 hours of total sleep deprivation on inflammatory markers in healthy young adults."
+    xdoi: doi:10.1016/j.bbi.2007.04.003
+    type: "Journal article"
+  -
+    id: source_Xie
+    label: "Zie et al (2013) ). Sleep drives metabolite clearance from the adult brain."
+    xdoi: doi:10.1126/science.1241224
+    type: "Journal article"
+  -
+    id: source_Brokaw
+    label: "Brokaw et al (2016) Resting state EEG correlates of memory consolidation."
+    xdoi: doi:10.1016/j.nlm.2016.01.008
+    pp: 17-25
+    type: "Journal article"
+  -
+    id: source_Marrosu
+    label: "Marrosu et al (1995) Microdialysis measurement of cortical and hippocampal acetylcholine release during sleep-wake cycle in freely moving cats."
+    xdoi: "No DOI found yet, located in: Brain Research, vol 671, pp 329–332."
+    type: "Journal article"
+  -
+    id: source_Lange
+    label: "Lange et al (2010) Effects of sleep and circadian rhythm on the human immune system."
+    xdoi: doi:10.1111/j.1749-6632.2009.05300.x
+    type: "Journal article"
+  -
+    id: source_Burgess
+    label: "Burgess et al (2002) ). Bright light, dark and melatonin can promote circadian adaptation in night shift workers."
+    xdoi: doi:10.1053/smrv.2001.0215
+    type: "Journal article"
+  -
+    id: source_Plog
+    label: "Plog & Nedergaard (2018) The glymphatic system in central nervous system health and disease: past, present, and future"
+    xdoi: doi:10.1146/annurev-pathol-051217-111018
+    type: "Journal article"
+  -
+    id: source_Killgore13
+    label: "Klilgore & Weber (2013) Sleep deprivation and cognitive performance."
+    xdoi: doi:10.1007/978-1-4614-9087-6_16
+    type: "Journal article"
+  -
+    id: source_Harrison
+    label: "Harrison & Horne (2000) The impact of sleep deprivation on decision making: A review."
+    xdoi: doi:10.1037/1076-898x.6.3.236
+    type: "Journal article"
+  -
+    id: source_Doran
+    label: "Doran et al (2001) Sustained attention performance during sleep deprivation: evidence of state instability."
+    xdoi: doi:10.1101/lm.132106
+    type: "Journal article"
+  -
+    id: source_Killgore07
+    label: "Killgore et al (2007) The trait of Introversion–Extraversion predicts vulnerability to sleep deprivation."
+    xdoi: doi:10.1111/j.1365-2869.2007.00611.x
+    type: "Journal article"
+  -
+    id: source_VanDongen
+    label: "Van Dongen et al (2003) Sleep debt: Theoretical and empirical issues."
+    comment: "No DOI found yet; located in Sleep and Biological Rhythms, vol 1, pp 5–13"
+    type: "Journal article"
+  -
+    id: source_Kuypers
+    label: "Kuypers (2007) psychedelic bliss: memory and risk taking during MDMA intoxication."
+    xdoi: ISBN:978-90-9021656-0
+    type: "Journal article"
+  -
+    id: source_Williamson
+    label: "Williamson & Feyer (2000) Moderate sleep deprivation produces impairments in cognitive and motor performance equivalent to legally prescribed levels of alcohol intoxication."
+    type: "Journal article"
+  -
+    id: source_Peeke
+    label: "Peeke et al (1980) Combined effects of alcohol and sleep deprivation in normal young adults."
+  -
+    id: source_Croes
+    label: "Croes et al (2017) Langdurige klachten na ecstasygebruik."
+    xdoi: url:www.trimbos.nl/docs/2c1748e6-93d5-481b-8fad-013f91a9e1df.pdf
+    type: "Report"
+  -
+    id: source_Berger
+    label: "Energy conservation and sleep."
+    xdoi: doi:10.1016/0166-4328(95)00002-b
+    type: "Journal article"
+  -
+    id: source_Fairclough
+    label: "Fairclough & Graham (1999) Impairment of driving performance caused by sleep deprivation or alcohol: A comparative Study. "
+    xdoi: doi:10.1518/001872099779577336
+    type: "Journal article"
+  -
+    id: source_Krueger
+    label: "Kreueger et al (2006) The role of cytokines in physiological sleep regulation"
+    xdoi: doi:10.1111/j.1749-6632.2001.tb05826.x
+    type: "Journal article"
+  -
+    id: source_Jessen
+    label: "Jessen et al (2015) The Glymphatic System: A Beginner’s Guide."
+    xdoi: doi:10.1007/s11064-015-1581-6
+    type: "Journal article"
+  -
+    id: source_Lim
+    label: "Lim & Dinges (2010) A meta-analysis of the impact of short-term sleep deprivation on cognitive variables."
+    xdoi: doi:10.1037/a0018883
+    type: "Journal article"
+  -
+    id: source_Tononi
+    label: "Tononi & Cirelli (2006) ). Sleep function and synaptic homeostasis."
+    xdoi: doi:10.1016/j.smrv.2005.05.002
+    type: "Journal article"
+  -
+    id: source_Beebe
+    label: "Beebe et al (2010). Attention, learning, and arousal of experimentally sleep-restricted adolescents in a simulated classroom"
+    xdoi: doi:10.1016/j.jadohealth.2010.03.005
+    type: "Journal article"
+assertion:
+  -
+    id: assertion_sleep_memory_1
+    label: Sleep promotes the consolidation of memory in humans.
+    source:
+      id: source_Diekelmann
+      comment: "test of a comment"
+  -
+    id: assertion_sleep_memory_2
+    label: Sleep promotes the consolidation of memory in humans.
+    source:
+      id: source_Gais
+  -
+    id: assertion_sleep_memory_3
+    label: Sleep promotes the consolidation of fear memory in humans.
+    source:
+      id: source_Menz
+  -
+    id: assertion_sleep_memory_4
+    label: Sleep promotes the consolidation of emotional memory in humans.
+    source:
+      id: source_Holland
+  -
+    id: assertion_sleep_memory_5
+    label: Sleep promotes the consolidation of memory in animals after training for a specific task.
+    source:
+      id: source_Graves
+  -
+    id: assertion_sleep_memory_6
+    label: Memory retention is already noticable after only several minutes of sleep.
+    source:
+      id: source_Diekelmann
+  -
+    id: assertion_cytokines
+    label: Infection, stress and tissue damage triggers the release of inflammatory cytokines.
+    source:
+      id: source_Frey
+  -
+    id: assertion_cytokines_function
+    label: When pro-inflammatory cytokines are injected, these cytokines enhance sleep.
+    source:
+      id: source_Krueger
+  -
+    id: assertion_sleep_glympathic_system
+    label: Sleep promotes the glympathic system.
+    source:
+      id: source_Xie
+  -
+    id: assertion_SD_cytokines
+    label: Sleep deprivation is associated with an increase of pro-inflammatory cytokines, which creates a disbalance of inflammatory cytokines and this induces inflammation.
+    source:
+      id: source_Frey
+  -
+    id: assertion_resting_1
+    label: Resting enhances the consolidation of memory.
+    source:
+      id: source_Brokaw
+  -
+    id: assertion_resting_2
+    label: The neurotransmitter ACh is released during quiet rest, just like during sleep.
+    source:
+      id: source_Marrosu
+  -
+    id: assertion_nocturnal_1
+    label: Cells like leukocytes show a specific diurnal or nocturnal rhythm.
+    source:
+      id: source_Lange
+  -
+    id: assertion_nocturnal_2
+    label: During nocturnal sleep cell counts of toxic cells are suppressed.
+    source:
+      id: source_Lange
+  -
+    id: assertion_sleep_debt
+    label: Sleep deprivation results in a sleep debt, which has unhealthy consequences.
+    source:
+      id: source_Burgess
+  -
+    id: assertion_glympathic_system_2
+    label: Failure of the glympathic system is associated with Alzheimer's disease.
+    source:
+      id: source_Plog
+  -
+    id: assertion_glympathic_system_1
+    label: The glympathic system is a recently discovered waste clearance pathway that removes metabolites and toxic proteins from the brain.
+    source:
+      id: source_Jessen
+  -
+    id: assertion_SD_performance
+    label: (Cognitive) performance deteriorates after 16 hours of wakefulness.
+    source:
+      id: source_Killgore13
+  -
+    id: assertion_SD_sensory_perception
+    label: Sleep loss causes a reduction in visual cortex activity and the reduction is most prominent when an individual experiences an attentional lapse.
+    source:
+      id: source_Killgore13
+  -
+    id: assertion_inattentive_behaviours
+    label: sleep deprived individuals showed significantly more inattentive behaviours compared to non-sleep deprived individuals while watching a movie.
+    source:
+      id: source_Beebe
+  -
+    id: assertion_SD_decision
+    label: Sleep deprivation affects the decision making proces.
+    source:
+      id: source_Harrison
+  -
+    id: assertion_state_instability
+    label: After sleep deprivation performance becomes instable, which is called state instability.
+    source:
+      id: source_Doran
+  -
+    id: assertion_SD_emotion_1
+    label: Sleep loss enhances the strenth of reactions to negative, but not to positive or neutral stimuli.
+    source:
+      id: source_Killgore13
+  -
+    id: assertion_SD_emotion_2
+    label: Humor is negatively evaluated and emotional expression is lost in the voice after sleep deprivation.
+    source:
+      id: source_Killgore13
+  -
+    id: assertion_individual_differences_1
+    label: The personality trait extraversion is more related to attentional lapses and more extensive declines in speed response during a task after one night of sleep deprivation.
+    source:
+      id: source_Killgore07
+  -
+    id: assertion_individual_differences_2
+    label: There is a genetic predisposition for vulnerability to sleep loss.
+    source:
+      id: source_VanDongen
+  -
+    id: assertion_MDMA_impulse_daytime
+    label: When MDMA is taken during daytime, impulse control is enhanced.
+    source:
+      id: source_Kuypers
+  -
+    id: assertion_MDMA_impulse_nighttime
+    label: When MDMA is taken during nighttime, impulse control is not enhanced.
+    source:
+      id: source_Kuypers
+  -
+    id: assertion_MDMA_PMF_daytime
+    label: When MDMA is taken during daytime psychomotor functioning is enhanced.
+    source:
+      id: source_Kuypers
+  -
+    id: assertion_MDMA_PMF_nighttime
+    label: When MDMA is taken during nighttime psychomotor functioning is impaired.
+    source:
+      id: source_Kuypers
+  -
+    id: assertion_SD_alcohol
+    label: Sleep deprivation causes cognitive and motor performance impairment similar to alcohol intoxication.
+    source:
+      id: source_Williamson
+  -
+    id: assertion_interaction_SD_alcohol_1
+    label: People who are under the influence of alcohol and who are sleep deprived react slower than people who are either are under the influence of alcohol or sleep deprived alone.
+    source:
+      id: source_Peeke
+  -
+    id: assertion_interaction_SD_alcohol_2
+    label: People who are under the influence of alcohol and who are sleep deprived show worse driving performance than people who either are under the influence of alcohol or sleep deprived alone.
+    comment: "this source was 'Howard'. But the one that was named 'Howard', I renamed to 'Harrison'. Smth wrong here?"
+    source:
+      id: source_Harrison
+  -
+    id: assertion_MDMA_cortisol
+    label: Cortisol levels rise after MDMA is taken.
+    source:
+      id: source_Croes
+  -
+    id: assertion_resting_3
+    label: Important functions of sleep, like recovery of neural function and synaptic downscaling to save energy and experience benefits for learning and memory, only occur together with slow wave sleep and therefore not while resting.
+    source:
+      id: source_Tononi
+  -
+    id: assertion_attention
+    label: The most simple form of attention, that is being able to detect a stimulus, is most strongly affected by sleep deprivation.
+    source:
+      id: source_Lim
+justification:
+  -
+    id: justification_01
+    label: Sleep prevents us from getting sick and (therefore) sleep deprivation causes an impaired immune system. Sleep prevents a disbalance of inflammatory cytokines and therefore health is maintained.
+    assertion:
+      id: [assertion_cytokines, assertion_cytokines_function, assertion_SD_cytokines]
+  -
+    id: justification_02
+    label: Sleep is important for our memory and (therefore) sleep deprivation causes memory impairment.
+    assertion:
+      id: [assertion_sleep_memory_1, assertion_sleep_memory_2, assertion_sleep_memory_3,  assertion_sleep_memory_4, assertion_sleep_memory_5, assertion_sleep_memory_6]
+  -
+    id: justification_03
+    label: Sleep protects us from toxicants and (therefore) sleep deprivation is associated with neurological diseases.
+    assertion:
+      id: [assertion_glympathic_system_1, assertion_glympathic_system_2, assertion_sleep_glympathic_system]
+  -
+    id: justification_04
+    label: Resting is not as beneficial as sleep, but is preferred over total sleep deprivation as resting state resembles a sleep state.
+    assertion:
+      id: [assertion_resting_1, assertion_resting_2, assertion_resting_3]
+  -
+    id: justification_05
+    label: Nocturnal sleep is preferred over diurnal sleep, but diurnal sleep is preferred over total sleep deprivation.
+    assertion:
+      id: [assertion_nocturnal_1, assertion_nocturnal_2, assertion_sleep_debt]
+  -
+    id: justification_06
+    label: Sleep deprivation causes impaired cognitive performance.
+    assertion:
+      id: [assertion_SD_performance, assertion_attention, assertion_inattentive_behaviours]
+  -
+    id: justification_07
+    label: Sleep deprivation causes impaired decision making.
+    assertion:
+      id: [assertion_SD_decision]
+  -
+    id: justification_08
+    label: Sleep deprivation causes state instability.
+    assertion:
+      id: [assertion_state_instability]
+  -
+    id: justification_09
+    label: Sleep deprivation causes impaired sensory perception.
+    assertion:
+      id: [assertion_SD_sensory_perception]
+  -
+    id: justification_10
+    label: Sleep deprivation affects emotional perception and experience.
+    assertion:
+      id: [assertion_SD_emotion_1, assertion_SD_emotion_2]
+  -
+    id: justification_11
+    label: There are individual differences in the effect sleep deprivation has on people.
+    assertion:
+      id: [assertion_individual_differences_1, assertion_individual_differences_2]
+  -
+    id: justification_12
+    label: There is an interaction between sleep deprivation and MDMA.
+    assertion:
+      id: [assertion_MDMA_PMF_nighttime, assertion_MDMA_PMF_daytime, assertion_MDMA_impulse_nighttime, assertion_MDMA_impulse_daytime]
+  -
+    id: justification_13
+    label: There is an interaction between sleep deprivation and alcohol.
+    assertion:
+      id: [assertion_SD_alcohol, assertion_interaction_SD_alcohol_1, assertion_interaction_SD_alcohol_2]
+decision:
+  -
+    id: decision_to_select_behavior_1
+    label: People should do so and so because of justifications 04,05,07,10 etc.
+    justification:
+      id: [justification_04, justification_05, justification_07, justification_10]
+  -
+    id: decision_to_select_behavior_2
+    label: People should do so and so because of
+    justification:
+      id: [justification_01, justification_02]
+---
+
