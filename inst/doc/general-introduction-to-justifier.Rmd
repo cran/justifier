@@ -21,7 +21,7 @@ The `justifier` package offers a flexible compromise that enables thorough docum
 In `justifier`, four types of information are distinguished:
 
 - `source`: A `source` is a document or other resource the contains more information about something. Commonly, `source`s will be journal articles, books, or reports, but they can be anything really.
-- `assertion`: An `assertion` is a statement that something is the case. An `assertion` will, if possible, be based on one or more `source`s. In `justifier`, an `assertion` is very similar to `assertion`s in the nanopublication ontology (see https://nanopub.com), in which case one could compare the `assertion`'s `description` plus the referenced `source`s or other `justifer` elements as its provenance.
+- `assertion`: An `assertion` is a statement that something is the case. An `assertion` will, if possible, be based on one or more `source`s. In `justifier`, an `assertion` is very similar to `assertion`s in the [nanopublication ontology](http://nanopub.org/wordpress/), in which case one could compare the `assertion`'s `description` plus the referenced `source`s or other `justifer` elements as its provenance.
 - `justification`: A `justification` is a justification of something or other. Generally, `justification`s will be used to justify `decision`s, but sometimes, you may want to justify something without it being tied to a specific decision.
 - `decision`: A `decision` is an explicit choice between one or more implicit or explicitly listed options. A `decision` should have one or more `justification`s which are each ideally based on one or more `assertion`s that each reference one or more `source`s.
 
@@ -52,7 +52,7 @@ Justification frameworks can be specified in three ways. First, using YAML store
 In justification frameworks, common metadata specifications are the following:
 
 - types of sources, assertions, justifications, and decisions
-- exhaustive lists of potential values
+- exhaustive lists of potential values (and optionally, validations)
 - scores, weights, or ranks attached to these values
 
 These specifications can pertain either to `justifier` specifications within a given domain, but they can also hold for all `justifier` specifications that are loaded in a project. For example, it is possible to specify that all `sources` must have a `type`, and that that type must always be `team belief`, `expert consensus`, `target group consultation`, `qualitative study`, `quantitative study`, or `research synthesis`. `justifier` will then flag deviations.
@@ -61,12 +61,12 @@ These specifications can pertain either to `justifier` specifications within a g
 
 When specifying something for multiple justifications, the eponymous `justifier` element can be used, making that the fifth `justifier` element. Contents of a `justifier` element pertain to all other elements in a file (`scope: local`), or in a project directory (`scope: global`), or all files that are read by the `justifier` package in a project (`scope: universal`).
 
-For example, to specify that the `justification framework` is stored in file `justifier-framework-specification.jfs`, and that this framework should be applied to all justifications in this directory that do not have another framework attached:
+For example, to specify that the `justification framework` is stored in file `justifier-framework-specification.jmd`, and that this framework should be applied to all justifications in this directory that do not have another framework attached:
 
 ```
 ---
 justifier:
-  framework: justifier-framework-specification.jfs
+  framework: justifier-framework-specification.jmd
   scope: global
 ---
 ```
@@ -94,7 +94,7 @@ justifier:
 ---
 ```
 
-`justifier` will then the `type` of all decisions in the project. If a decision has the type "global_design", `justifier` will check whether whether it has a value and whether the value is "experimental" or "observational"; if not, `justifier` will indicate this.
+`justifier` will then check the `type` of all decisions in the project. If a decision has the type "global_design", `justifier` will check whether whether it has a value and whether the value is "experimental" or "observational"; if not, `justifier` will indicate this.
 
 It is also possible to attach additional attributes to these values, such as scores or weights, by including another vector:
 

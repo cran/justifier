@@ -34,16 +34,18 @@
 #' ---
 #' ';
 #' justifications <-
-#'   load_justifications(text=exampleJustifier);
+#'   justifier::load_justifications(text=exampleJustifier);
 #' miniGraph_original <-
 #'   justifications$decisionGraphs[[1]];
 #' miniGraph <-
-#'   apply_graph_theme(miniGraph_original,
-#'                     c("color", "#0000AA", "node"),
-#'                     c("shape", "triangle", "node"),
-#'                     c("fontcolor", "#FF0000", "node"));
-#' ### This line should be run when executing this example as test, because
-#' ### rendering a DiagrammeR graph takes quite long
+#'   justifier::apply_graph_theme(
+#'   miniGraph_original,
+#'   c("color", "#0000AA", "node"),
+#'   c("shape", "triangle", "node"),
+#'   c("fontcolor", "#FF0000", "node")
+#' );
+#' ### This line shouldn't be run when executing this example as test,
+#' ### because rendering a DiagrammeR graph takes quite long
 #' \dontrun{
 #' DiagrammeR::render_graph(miniGraph);
 #' }

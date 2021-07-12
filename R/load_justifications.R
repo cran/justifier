@@ -41,6 +41,8 @@
 #' @param ignoreOddDelimiters Whether to throw an error (FALSE) or
 #' delete the last delimiter (TRUE) if an odd number of delimiters is
 #' encountered.
+#' @param storeDecisionGraphSvg Whether to also produce (and return) the SVG
+#' for the decision graph.
 #' @param encoding The encoding to use when calling [readLines()]. Set to
 #' NULL to let [readLines()] guess.
 #' @param silent Whether to be silent (TRUE) or informative (FALSE).
@@ -87,17 +89,18 @@
 #' example to justify decisions we take.
 #' ';
 #'
-#' load_justifications(text=exampleMinutes);
+#' justifier::load_justifications(text=exampleMinutes);
 #'
 #' ### To load a directory with justifications
+#'
 #' examplePath <-
 #'   file.path(system.file(package="justifier"),
 #'             'extdata');
-#' load_justifications_dir(path=examplePath);
+#' justifier::load_justifications_dir(path=examplePath);
 #'
 #' @export
-load_justifications <- function(text,
-                                file,
+load_justifications <- function(text = NULL,
+                                file = NULL,
                                 delimiterRegEx = "^---$",
                                 justificationContainer = c("justifier",
                                                            "justification",
@@ -106,13 +109,14 @@ load_justifications <- function(text,
                                                            "source"),
                                 ignoreOddDelimiters = FALSE,
                                 encoding="UTF-8",
+                                storeDecisionGraphSvg = TRUE,
                                 silent=TRUE) {
 
   ###--------------------------------------------------------------------------
   ### Load the YAML fragments containing the justifications
   ###--------------------------------------------------------------------------
 
-  if (!missing(file)) {
+  if (!is.null(file)) {
     justifications <-
       yum::load_and_simplify(file=file,
                              delimiterRegEx=delimiterRegEx,
@@ -121,7 +125,7 @@ load_justifications <- function(text,
                              ignoreOddDelimiters=ignoreOddDelimiters,
                              encoding=encoding,
                              silent=silent);
-  } else if (!missing(text)) {
+  } else if (!is.null(text)) {
     justifications <-
       yum::load_and_simplify(text=text,
                              delimiterRegEx=delimiterRegEx,
@@ -130,6 +134,7 @@ load_justifications <- function(text,
                              ignoreOddDelimiters=ignoreOddDelimiters,
                              encoding=encoding,
                              silent=silent);
+    file <- "none"
   } else {
     stop("Specify either `file` or `text` to load.");
   }
@@ -145,7 +150,10 @@ load_justifications <- function(text,
   ###--------------------------------------------------------------------------
 
   res <-
-    parse_justifications(justifications);
+    parse_justifications(justifications,
+                         fromFile = file,
+                         storeDecisionGraphSvg = storeDecisionGraphSvg,
+                         silent=silent);
 
   return(res);
 

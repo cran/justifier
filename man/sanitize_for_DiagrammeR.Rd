@@ -4,14 +4,16 @@
 \alias{sanitize_for_DiagrammeR}
 \title{Sanitize for DiagrammeR}
 \usage{
-sanitize_for_DiagrammeR(x,
-  regExReplacements = list(c("\\\\\\"", "`"), c("\\\\'", "`"), c("\\\\\\\\", "/")))
+sanitize_for_DiagrammeR(
+  x,
+  regExReplacements = justifier::opts$get("regExReplacements")
+)
 }
 \arguments{
 \item{x}{The string or vector}
 
 \item{regExReplacements}{A list of two-element character vectors; first element
-should be the elemnet to search, and the second element, the replacement.}
+should be the element to search, and the second element, the replacement.}
 }
 \value{
 The sanitized character vector

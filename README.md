@@ -8,22 +8,19 @@
 <!-- badges: start -->
 
 [![Pipeline
-status](https://gitlab.com/r-packages/justifier/badges/master/pipeline.svg)](https://gitlab.com/r-packages/justifier/commits/master)
+status](https://gitlab.com/r-packages/justifier/badges/prod/pipeline.svg)](https://gitlab.com/r-packages/justifier/-/commits/prod)
 
 [![Coverage
-status](https://codecov.io/gl/r-packages/justifier/branch/master/graph/badge.svg)](https://codecov.io/gl/r-packages/justifier?branch=master)
+status](https://codecov.io/gl/r-packages/justifier/branch/prod/graph/badge.svg)](https://codecov.io/gl/r-packages/justifier?branch=prod)
 
 <!-- [![Dependency status](https://tinyverse.netlify.com/badge/justifier)](https://CRAN.R-project.org/package=justifier) -->
-
 <!-- badges: end -->
 
 The pkgdown website for this project is located at
 <https://r-packages.gitlab.io/justifier>.
 
 <!--------------------------------------------->
-
 <!-- Start of a custom bit for every package -->
-
 <!--------------------------------------------->
 
 The goal of `justifier` is to provide a simple human- and
@@ -37,17 +34,15 @@ over time.
 
 Three vignettes (in progress) are located at:
 
-  - <https://r-packages.gitlab.io/justifier/articles/general-introduction-to-justifier.html>
-  - <https://r-packages.gitlab.io/justifier/articles/justifier-in-study-design.html>
-  - <https://r-packages.gitlab.io/justifier/articles/justifier-in-intervention-development.html>
+-   <https://r-packages.gitlab.io/justifier/articles/general-introduction-to-justifier.html>
+-   <https://r-packages.gitlab.io/justifier/articles/justifier-in-study-design.html>
+-   <https://r-packages.gitlab.io/justifier/articles/justifier-in-intervention-development.html>
 
 This meets the increasing demand for accountability of professionals
 (see e.g. Van Woerkum & Aarts, 2012).
 
 <!--------------------------------------------->
-
 <!--  End of a custom bit for every package  -->
-
 <!--------------------------------------------->
 
 ## Installation
@@ -60,7 +55,7 @@ install.packages('justifier');
 ```
 
 You can install the development version of `justifier` from
-[GitLab](https://gitlab.com) with:
+[GitLab](https://about.gitlab.com) with:
 
 ``` r
 remotes::install_gitlab('r-packages/justifier');
@@ -70,9 +65,7 @@ remotes::install_gitlab('r-packages/justifier');
 using the `install.packages` function)
 
 <!--------------------------------------------->
-
 <!-- Start of a custom bit for every package -->
-
 <!--------------------------------------------->
 
 ## References
@@ -82,7 +75,5 @@ new forms’, *Journal of Organizational Transformation & Social Change*,
 9, pp. 271–283, .
 
 <!--------------------------------------------->
-
 <!--  End of a custom bit for every package  -->
-
 <!--------------------------------------------->

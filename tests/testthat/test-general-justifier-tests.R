@@ -23,7 +23,7 @@ testthat::test_that("reading a directory with justifications works", {
 
   res <- load_justifications_dir(examplePath);
 
-  testthat::expect_equal(length(res), 5);
+  testthat::expect_equal(length(res), 8);
 
 });
 
@@ -103,6 +103,32 @@ testthat::test_that("odd objects provided to to_specList throw an error", {
   testthat::expect_error(justifier::to_specList(list(1:4)));
 
 });
+
+###-----------------------------------------------------------------------------
+
+testthat::test_that("reading the example study jmd file works", {
+
+  examplePath <- file.path(system.file(package="justifier"), 'extdata');
+
+  res <- load_justifications(file=file.path(examplePath,
+                             "study-example.jmd"));
+
+  testthat::expect_equal(length(res$raw), 6);
+
+});
+
+###-----------------------------------------------------------------------------
+
+# testthat::test_that("nested specifications load properly", {
+#
+#   testthat::expect_error(
+#
+#     a<-load_justifications(file=here::here('inst', 'extdata', 'complex-example.jmd'))
+#
+#     );
+#
+# });
+
 
 #remotes::install_gitlab("r-packages/justifier", upgrade = "never", build_opts = c());
 

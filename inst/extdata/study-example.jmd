@@ -1,0 +1,273 @@
+---
+title: "Using justifier in study design"
+author: "Gjalt-Jorn Peters"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using justifier in study design}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+<!-- If you haven't read the general introduction to `justifier` yet, you may want to start there. -->
+
+# Why justify?
+
+Planning a scientific study in psychology entails taking very many decisions. Some of these decisions are taken without thinking about it: for example, given the default to use either Type II (SPSS) or Type III (R) Sums of Squares in Analysis of Variance analyses, users of either package will sometimes follow that default without realising this constitutes an implicit decision. However, ideally, researchers make these decisions deliberately, and ideally, they have justifications for these decisions.
+
+In fact, a recent blog post called upon researchers in psychology to #JustifyEverything:
+
+> My new motto is ‘Justify Everything’ (it also works as a hashtag: #JustifyEverything).
+>
+> *[Daniel Lakens, 2019](http://daniellakens.blogspot.com/2019/03/the-new-heuristics.html)*
+
+And indeed, if researchers would justify all their decisions, this has the potential of yielding a wealth of benefits. First, researchers may become more aware of the decisions they take, enabling them to take those decisons more deliberately. This would decrease the much-lamented unquestioning reliance on defaults in the used software. Second, review of study proposals has the potential to become much more efficient, if the decisions that were taken and their justifications can be extracted and parsed automatically. Third, once justifing everything becomes common practice, analysing these decisions and their justifications can be very insightful, for example showing where training of researchers may be most beneficial (i.e. areas where decisions and their justifications are based on outdated assumptions). Fourth, documenting decisions and justifications means that a lot of aspects of a study's methods and analyses are necessarily documented in a machine-readable way. This means that when conducting evidence syntheses, the information can be automatically extracted, and no longer needs to be coded from the manuscript.
+
+However, for this potential to be realised, justifications need to be documented in a uniform format. Ideally, this is a format that is simultaneously userfriendly enough to be used by humans as they document their meeting minutes or notes, and structured enough to be machine-readable so as to enable automatic extraction and parsing. The `justifier` package provides this format. The basic introduction of `justifier` is in the general introduction vignette, and this vignette presents a simple example using a justification framework for planning psychological studies.^[Note that this framework is intended as an _example_, not as an authoritative framework that should be relied on in the wild.]
+
+# Study design decisions
+
+In this example framework, we will limit ourselves to four decisions that a researcher always takes for any study they undertake. The first is to establish the research question or questions, or if appropriate, hypothesis or hypothesis. The second is to determine which method wil be used. The third is deciding how many data points need to be sampled (for example, how many participants will be recruited). The fourth is whether to preregister the study.^[Again, this is a gross oversimplification; these are not the most important decisions, but they have been chosen because they cover different kinds of decisions, with different kinds of evidence available.]
+
+The example study is an applied study into the social-cognitive determinants of getting one's ecstasy pills tested. In the Netherlands, there are drug test labs where one can bring drugs to anonymously get those tested and find out the ingredients and their dose. Ectasy pills ideally contain only one active ingredient: 3,4-methylenedioxymethamphetamin (MDMA). However, pills can contains varying doses of MDMA (in 2017, the mean MDMA dose was 187mg of MDMA; 1% of the pills had a dose under 35mg of MDMA and 70% over 140mg of MDMA). In addition, pills can contain contaminants (in 2017, 87.6% of the pills tested in the Netherlands contained only MDMA as active ingrdient).
+
+This example is chosen for two reasons. First, it's my topic, so this way I don't have to learn about another domain to write it. Second, it's the same example as the one used in the intervention development vignette, so that readers won't have to familiarize themselves with two scenarios.
+
+## Research question
+
+The first decision is in a way the simplest one: what exactly does one want to study? However, this research question isn't arbitrary. In this world of finite, often scarce, resources, justification of why to do a study in the first place is perhaps one of the most important considerations.
+
+In this applied example study, the research question is `"What are the most important determinants of getting one's ecstasy tested?"`. The answer to this research question is required to develop and effective interventions to promote ecstasy pill testing. It is important to promote ecstasy pill testing because if ecstasy users do not get their pills tested, they are exposed to two risks. First, they may unknowingly ingest contaminants; and second, proper dosing (~ 1-1.5 mg of MDMA per kg of body weight) becomes hard if the dose in a pill is unknown. To minimize the likelihood of incidents and accidental intoxication, testing is a required step.
+
+## Method
+
+Often, the appropriate method follows from a combination of the type of research question and knowledge about the relevant domain. Some research questions require qualitative research; some quantitative research; and some are best answered by research synthesis. However, within each of these, many choices have to be made. To name a few examples, for qualitative research, which analysis approach is most appropriate and how to sample participants; for quantitative research, whether to use an experimental design or not and which operationalisations to use; and for a research syntesis, which bibliographic databases to use and whether to extract effect size esimates.
+
+In the example study, there are two kinds of considerations. On the one hand, logistical considerations (available time and money. On the other hand, available prior knowledge from earlier research. On the one hand, one needs to know enough about potential determinants and sub-determinants to develop a sufficiently comprehensive questionnaire. On the other hand, one can keep doing qualitative studies and learning a little bit more ad infinitum, while in reality, one often has to work with (severely) limited funds and time.
+
+## Sample size
+
+Once the method is clear, for empirical research, it becomes possible to plan the required sample size. For example, in this example study, we aim to map the importance of a series of behavioral determinants to then inform intervention development. That means we desire sufficiently accurate estimates of determinants' relevance. To obtain a confidence interval with a half-width of around .1, 400 participants suffice (Moinester & Gottfried, 2014).
+
+
+## Preregistration
+
+Preregistation is an excellent example of a decision that is taken for every single study, yet often without the researchers' awareness. As with any decision taken during study planning, there are no absolute 'right' or 'wrong' answers: the justification of the decision is often more important than the outcome.
+
+# Example study decisions in `justifier` format
+
+In this section, the decisions explained above are shows in the `justifier` format.
+
+## Framework specification
+
+In one of the 'justified markdown' files, for example meeting minutes, researchers would specify the framework to use. In this case, this specification would look like this:
+
+```
+---
+justifier:
+  -
+    scope: global   # Can also be local or universal
+    framework: justifier-example-study-framework-specification.jmd
+  -
+    scope: local
+    date: 2019-03-06
+---
+```
+
+This justifier fragment contains two bits of metadata, the first applying to all files in this directory (`scope: global`) and the second only to this file (`scope: local`; `scope: universal` could have been used to apply the metadata to all files read by `justifier` in a given project). The first fragment specifies the framework to apply (`justifier-example-study-framework-specification.jmd`). This framework contains information about `contexts` of decisions and `conditions` that can apply to decisions, justifications, assertions, and sources.
+
+## Research question
+
+```
+---
+decision:
+
+  ### Type and decision can be the same, but it is also possible that there
+  ### are multiple decisions of the same type, for example relating to different
+  ### aspects of sample size planning or selection of operationalisations.
+  type: research_question
+  id: research_question
+
+  ### The value is the decision that is taken (the chosen alternative). For decisions
+  ### with a type, this will be checked against the allowed values specified in the
+  ### justifier framework, if such a framework is available.
+  value: "What are the most important determinants of getting one's ecstasy tested?"
+
+  ### The label and description are human-readable free-text fields.
+  label: "The answer to this research question is required to develop and effective interventions to promote ecstasy pill testing."
+  description: "To minimize the likelihood of incidents and accidental intoxication, testing is a required step."
+
+  justification:
+    -
+      id: without_testing_users_may_ingest_contaminants
+      label: "Some XTC pills are contaminated, and one needs to test them to be aware of the pill contents."
+      assertion:
+        -
+          id: some_pills_are_contaminated
+          source: vogels_2009
+          label: "Not all produced XTC pills contain only MDMA as active ingredient."
+          evidence_type: "empirical study"
+    -
+      id: proper_dosing_requires_knowing_dose
+      label: "Proper dosing (~ 1-1.5 mg of MDMA per kg of body weight) becomes hard if the dose in a pill is unknown."
+      assertion:
+        id: dosing_requires_pill_content
+        label: "Determining the dose of MDMA one uses requires knowing both one's body weight and the pill dose."
+        source:
+          id: brunt_2012
+          label: "Brunt, Koeter, Niesink & van den Brink (2012)"
+          evidence_type: "empirical study"
+---
+```
+
+## Method
+
+```
+---
+decision:
+
+  ### Type and decision can be the same, but it is also possible that there
+  ### are multiple decisions of the same type, for example relating to different
+  ### aspects of sample size planning or selection of operationalisations.
+  type: global_study_method
+  id: global_study_method
+
+  ### The value is the decision that is taken (the chosen alternative). For decisions
+  ### with a type, this will be checked against the allowed values specified in the
+  ### justifier framework, if such a framework is available.
+  value: quantitative
+
+  ### The label and description are human-readable free-text fields.
+  label: "We will conduct a quantitative study."
+  description: "Here, a decision can be explained more in detail (e.g. describing how the justifications relate to each other)."
+
+  justification:
+    -
+      id: enough_known_about_testing_determinants
+      label: "We have enough information available to develop a questionnaire that is likely to measure the most important determinants and sub-determinants of XTC testing."
+      assertion:
+        -
+          id: testing_xtc_is_reasoned
+          source: phd_peters_2008
+          label: "Previous research indicates that getting one's ecstasy tested (or not) is largely a reasoned behavior"
+        -
+          id: there_is_qualitative_research_about_testing
+          source: phd_peters_2008
+          label: "There exists qualitative research about why people get their ecstasy tested"
+    -
+      id: limited_time
+      label: "We have to finish this study before the end of 2019."
+      assertion:
+        -
+          id: project_deadline
+          label: "The deadline for this project is december 2019."
+          source:
+            id: project_proposal
+            label: "The original proposal for this project as funded by our funder, see the document."
+            year: 2017
+---
+```
+
+## Sample size
+
+```
+---
+decision:
+  id: study_sample_size
+  type: study_sample_size
+
+  value: 400
+
+  label: "We aim to recruit around 400 participants."
+
+  justification:
+    -
+      id: aipe_for_correlations
+      label: "To estimate a correlation accurately, you need ~ 400 participants."
+      assertion:
+        -
+          id: nice_round_number
+          label: "We want to recruit a nice round number of participants."
+          source:
+            id: nice_round_numbers_are_nice
+            year: 219
+            label: "In our meeting of 2019-07-05, we agreed that all team members like nice round numbers."
+            evidence_type: "team opinion"
+        -
+          id: exact_aipe_for_our_study
+          label: "Table 1 shows that 383 participants are sufficient even for correlations as low as .05."
+          source:
+            id: moinester_gottfried_2014
+            year: 2014
+            label: "Moinester, M., & Gottfried, R. (2014). Sample size estimation for correlations with pre-specified confidence interval. The Quantitative Methods of Psychology, 10(2), 124–130."
+            evidence_type: "theory"
+---
+```
+
+## Pregistrations
+
+```
+---
+decision:
+  id: preregistration
+  type: preregistration
+
+  value: false
+
+  label: "We will not preregister this study."
+
+  justification:
+    -
+      id: low_risk_of_bias
+      label: "Because we do not test a specific hypothesis but simply want to know how relevant the different determinants are in this population, the need to preregister is less pressing."
+      assertion:
+        -
+          id: prereg_to_decrease_bias
+          label: "Preregistration_decreases_bias"
+          source:
+            id: example_source
+            label: "Not online now, but a study making this point would be nice here"
+            evidence_type: "empirical study"
+    -
+      id: no_time_for_prereg
+      label: "We have no time to complete a preregistration form."
+      assertion:
+        id: project_deadline
+---
+```
+
+# `justifier` processing
+
+This vignette itself is a valid .jmd file (see [here]( https://gitlab.com/r-packages/justifier/blob/master/vignettes/justifier-in-study-design.Rmd) for the vignette Rmd file and [here](https://gitlab.com/r-packages/justifier/blob/master/inst/extdata/study-example.jmd) for the example .jmd file; the content is identical). It can be read by `justifier`, as is, to structure the information and apply the framework. If this framework specifies, for example (which this example framework happens to specify), that there exist different evidence types (a new field for `source` elements, as specified in the framework), and that each can be awarded a score based on some idea of evidential quality, it becomes possible to compute the mean score per decision. Because this vignette is contained within the package in the `extdata` directory as well, it can be read and processed here. Since `justifier` frameworks can also contain specifications of ways to verify the entered data, it will immediately spot the typo we made:
+
+```{r reading-justifications}
+examplePath <- file.path(system.file(package="justifier"), 'extdata');
+
+res <-
+  justifier::load_justifications(file=file.path(examplePath,
+                                                "study-example.jmd"),
+                                 silent=TRUE);
+```
+
+Having successfully read the justifications, we can now show the mean score for every decision:
+
+```{r decision-scores}
+knitr::kable(res$fwApplications$`justifier-example-study-framework-specification`$scoreDf);
+```
+
+We can also show overviews of each decision and its justifications:
+
+```{r decision-graph-1, fig.width=9}
+plot(res$decisionGraphs$research_question);
+```
+
+```{r decision-graph-2, fig.width=9}
+plot(res$decisionGraphs$study_sample_size);
+```

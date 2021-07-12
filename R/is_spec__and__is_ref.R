@@ -3,7 +3,9 @@ is_spec <- function(x) {
 }
 
 is_ref <- function(x) {
-  return(("justifierRef" %in% class(x)) ||
-           ((length(names(x)) == 0) &&
-            (is.character(x))));
+  return(("justifierRef" %in% class(x)) || ((length(names(x)) == 0) && (is.character(x))));
+}
+
+is_nested <- function(x) {
+  return(is.list(x) && any(unlist(lapply(x, is.list))));
 }

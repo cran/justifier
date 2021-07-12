@@ -1,6 +1,6 @@
 ---
 title: "Using justifier in behavior change intervention development"
-author: "Gjalt-Jorn Peters"
+author: "Gjalt-Jorn Peters & Marta Marques"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -16,50 +16,391 @@ knitr::opts_chunk$set(
 )
 ```
 
-Behavior change is extremely hard. Or rather, behavior change experts are only involved for behavior change challenges that others have failed at repeatedly, which boils down to the same thing when it comes to behavior change intervention development. Because this is complicated, a series of tools has been developed to assist with different aspects of the intervention development process.
+<!----------------------------------------------------------------------------->
 
-The Intervention Mapping protocol is one such tool. It can be used for intervention development, analysis (and potentially improvement or adaptation) of existing interventions, and for description of the intervention development process or products. It is extremely comprehensive, which is at once one or its core strengths and main weaknesses. On the one hand, if one follows the Intervention Mapping protocol, one is assured of a very thorough development process, where all decisions are solidly informed by theory and evidence. On the other hand, exactly because of this, Intervention Mapping is often perceived as unwieldy and too slow to follow in practice. Nonetheless, Intervention Mapping has been used for the development of a large number of interventions (https://interventionmapping.com/references lists around 1000 articles describing around 300 interventions).
+# Background
 
-In theory, each of these development processes are underlied by a wealth of insights and lessons about the many choices that have to be made during the intervention development procedure. Yet, despite Intervention Mapping's highly systematic nature, the decisions that are taken and their justifications are poorly documented. This is not unique to interventions based on Intervention Mapping. In fact, the poor state of 
+Behavior change is extremely hard. Or rather, behavior change experts are only involved for behavior change challenges that others have failed at repeatedly, which boils down to the same thing when it comes to behavior change intervention development. Because this is complicated, a series of tools has been developed to assist with different aspects of the intervention development process. This vignette shows how decisions taken when applying two such tools can be documented using `justifier`: Intervention Mapping and the Behavior Change Wheel.
 
-To include the decision to select a target behavior, the following fragment can be used:
+In theory, each of these development processes is underlied by a wealth of insights and lessons about the many choices that have to be made during the intervention development procedure. Yet, in the individual intervention development processes, the decisions that are taken and their justifications are often poorly documented. This prohibits learning many potential lessons from such processes.
+
+The `justifier` package offers a solution to this situation. It provides a standard for documenting decisions and their justifications using a format that can easily be integrated in text files, such as meeting minutes. The format is simultaneously human-readable and machine readable. The latter enables automatically reading all justifications in a project into a software package for further processing.
+
+By applying justification frameworks, the decisions and underlying justifications can be categorized, enabling automatically extracting all decisions and justifications that are relevant to, for example, a given phase in intervention development. This facilitates learning from intervention development in practice without first requiring coding of, for example, minutes.
+
+<!----------------------------------------------------------------------------->
+
+## Intervention Mapping
+
+The first tool is the Intervention Mapping protocol. It can be used for intervention development, analysis (and potentially improvement or adaptation) of existing interventions, and for description of the intervention development process or products. It is extremely comprehensive, which is at once one or its core strengths and main weaknesses. On the one hand, if one follows the Intervention Mapping protocol, one is assured of a very thorough development process, where all decisions are solidly informed by theory and evidence. On the other hand, exactly because of this, Intervention Mapping is often perceived as unwieldy and too slow to follow in practice. Nonetheless, Intervention Mapping has been used for the development of a large number of interventions (https://interventionmapping.com/references lists around 1000 articles describing around 300 interventions).
+
+A very rough picture of the structure of Intervention Mapping can be painted by the six 'steps' that are iteratively and nonlinearly applied:
+
+1. Needs assessment: obtaining a comprehensive overview of the problem, needs, and capacities
+2. Logic model of the behavior: mapping the determinants and environmental conditions determining the behavior
+3. Logic model of change: selecting methods of behavior change and translate to applications
+4. Program development: combine applications into a coherent program, pretest, and produce
+5. Implementation: anticipate on implementation of the program
+6. Evaluation: evaluate the program and optimize where necessary
+
+Of these six steps, steps 2 and 3 will be used to illustrate how to use `justifier` when developing intervention using the Intervention Mapping protocol. There are two reasons for this.
+
+First, these two steps will be the most familiar to psychologists involved in behavior change intervention development. The determinant studies conducted in step 2 have been part and parcel of health promotion and education efforts for decades, long before the term 'behavior change science' gained popularity. Similarly, studies into behavior change principles (called 'methods for behavior change' in Intervention Mapping, and called 'behavior change techniques' in the Behavior Change Wheel) have been conducted for decades within various subfields of psychology (see e.g. Leventhal, 1970).
+
+Second, a tool has been developed that conveniently captures and makes explicit a number of important products of steps 2 and 3: the Acyclic Behavior Change Diagram (ABCD). The ABCD generates a visualisation of the full logic model of change, showing many of the structural and causal assumptions underlying an intervention. This diagram is generated on the basis of a matrix (the ABCD matrix), which has seven columns, each of which represents a series of decisions in the intervention development process. As such, justifying each of these decisions comprises a substantial proportion of the justification of the entire intervention development process.
+
+<!----------------------------------------------------------------------------->
+
+## Behavior Change Wheel
+
+This introduction will be added later.
+
+<!----------------------------------------------------------------------------->
+
+# Example 1: Intervention Mapping (Acyclic Behavior Change Diagrams)
+
+This first example follows parts of steps 2 and 3 of the Intervention Mapping protocol at the hand of the seven columns of the Acyclic Behavior Change Diagram matrix.
+
+<!----------------------------------------------------------------------------->
+
+## Justifying the selected target behavior
+
+Before it is possible to analyse why target population members exhibit a behavior they exhibit, selecting such a target behavior is necessary. Behavior change interventions do, after all, need a target behavior.
+
+To include the decision to select a target behavior, a fragment like this can be used:
 
 ```{r echo=TRUE, eval=FALSE}
 ---
 decision:
   id: target_behavior_selection
   type: selection_target_behavior
+  
   label: "The target behavior is getting ecstasy tested"
-  description: "Room for more explanation about this decision."
+  
+  description: "In the Netherlands, it is possible to deliver an ecstasy pill to a testing centre. These testing centres, usually operated by the prevention department of substance use disorder organisations, a type of health organisation in the Netherlands, then test the pills. The client receives a code and can call the testing service a week later to find out which active ingredients were found in the pill, and in which dose (in milligrams)."
+  
   date: 2019-09-03
+  
   justification:
     id: importance_of_knowing_pill_contents
     label: "Knowing pill contents is important"
     description: "Risk of ecstasy use increases as a higher dose is consumed (and adulterants can be toxic)."
-    source:
-      id: example_source_1
-      label: "Some example source"
+    assertion:
+      id: adulterants_can_be_toxic
+      label: "Adulterated MDMA can contain toxic substances."
+      source:
+        id: expert_interview_1
+        label: "Expert interview in document 'exp_interview_1.docx'."
+        type: "external expert opinion"
 ---
 ```
 
-To justify choosing a sub-behavior, 
+Every `justifier` element must have a unique identifier (`id`), and in addition, can optionally have a type. Specifying a type for a decision will enable automatic processing when a framework is applied. Frameworks specify, for decisons of given types, how to organise them relative to each other (e.g. the order of the decisisons in a procedure), what acceptable values for the decisions are (if any), and allow some validation to check for those values.
 
+In addition, to an `id`, all `justifier` elements can have a `label` and a `description`. A `label` is a human-readable short title for the element, and a `description` allows for more details. The `date` field allows specifying when the decision was taken.
 
+In `justifier`, every `decision` has a `justification`. Each `justification` is based on one or more `assertion`s, which are each based on one or more `source`s. A `source` can be an academic article, an unpublished report, the result of a consensus meeting with experts, the opinion of the planning group (an Intervention Mapping term), or even the opinion of one individual. The explicit definition of `source`s makes it possible to trace back the origins of `assertion`s. An `assertion` is an assumption or statement of fact. This is loosely based on assertions as defined in [nanopublicatios](http://nanopub.org/wordpress/); in this sense, a `source` can be considered a very rough specification of an `assertion`s provenance). Thus, a list of all `assertion`s documented in an interventions justification shows what the intervention developers knew about, or believed to be true about, the world (and a list of the sources shows where that knowledge or those assumptions came from).
 
-To justify choosing a determinant for a sub-behavior,
+The `justification`s combine one or more `assertion`s into coherent reasoning supporting a `decision`. A `decision` can have multiple `justification`s (but the entire justification can also be formulated within one `justification` element; so the number of `justification`s on which a decision is based is not necessarily a proxy for how well-supported a decision is).
 
-To justify choosing a sub-determinant underlying a determinant
+Any `source`, `assertion`, and `justification` can be re-used; they have, after all, unique identifiers. In addition, these elements can be specified on their own, or within their parent elements. For example, the following constitutes a valid `source` definition:
 
-To justify choosing a behavior change principle
+```{r echo=TRUE, eval=FALSE}
+---
+source:
+  id: west_development_2019
+  label: "West, R., Godinho, C. A., Bohlen, L. C., Carey, R. N., Hastings, J., Lefevre, C. E., & Michie, S. (2019). Development of a formal system for representing behaviour-change theories. Nature human behaviour, 3(5), 526. doi:10.1038/s41562-019-0561-2"
+  doi: "10.1038/s41562-019-0561-2"
+---
+```
 
-To justify choosing an application
+This source can then be used in assertions elsewhere.
 
-To justify the conditions for effectiveness
+<!----------------------------------------------------------------------------->
 
+## Justifying selected sub-behaviors
+
+Once the target behavior is clear, Intervention Mapping prompts identification of all sub-behaviors that make up the target behavior (called 'performance objectives' in IM vocabulary). Sub-behaviors are distinguished by having different psychological determinants and/or environmental conditions. Not all sub-behaviors are selected for intervention. Resource constraints often necesitate selection.
+
+To justify choosing or not choosing a sub-behavior, a fragment like the following can be used:
+
+```{r echo=TRUE, eval=FALSE}
+---
+decision:
+  id: sub_behavior_selection
+  type: selection_sub_behavior
+  
+  label: "The sub-behavior 'delivering pill to testing centre' is selected."
+  
+  description: "This is a necessary sub-behavior; without, the target behavior can impossibly be completed."
+  
+  date: 2019-09-03
+  
+  justification:
+    id: justification_only_pills_delivered_to_testing_centres_are_tested
+    label: "Only ecstasy pills delivered to a testing centre are tested."
+    description: "The procedures for testing ecstasy pills prescribe that only pills that are delivered to testing centres are tested."
+    assertion:
+      id: only_pills_delivered_to_testing_centres_are_tested
+      label: "The procedures for testing ecstasy pills prescribe that only pills that are delivered to testing centres are tested."
+      source:
+        id: drug_testing_conditions
+        label: "Conditions for getting drugs tested"
+        url: "https://www.drugs-test.nl/voorwaarden"
+---
+```
+
+As can be seen here, there is no real difference between the justification and assertion; for such simple facts, there is not much reasoning required to tie it into a decision.
+
+<!----------------------------------------------------------------------------->
+
+## Justifying selected determinants
+
+Ideally, for every performance objective, all determinants are mapped as comprehensively as possible (as are the enviromental conditions and the environmental agents who control those, but ABCDs deal only with behavior change within target population individuals). From this full overview of potentially relevant determinants, resource constraints will often necessitate selection of a subset of determinants to target in an intervention.
+
+To justify choosing or not choosing a determinant for a sub-behavior, a fragment like the following can be used:
+
+```{r echo=TRUE, eval=FALSE}
+---
+decision:
+  id: determinants_forgo_habit
+  type: selection_determinant
+  
+  label: "The determinant 'habit' is not selected."
+  
+  description: "We will not spend resources on targeting 'habit'"
+  
+  date: 2019-09-03
+
+  justification:
+    id: justification_habit_not_important_for_testing
+    label: "Habit is not relevant."
+    description: "Getting ecstasy tested is an infrequently performed behavior. This means the requirements for developing automatic behavior are not in place."
+    assertion:
+      id: assertion_habit_not_important_for_testing
+      label: "Getting ecstasy tested is an infrequently performed behavior. This means the requirements for developing automatic behavior are not in place."
+      source:
+        id: planning_group_meeting_20190816
+        label: "Minutes of the planning group meeting at the 16th of August 2019."
+---
+```
+
+<!----------------------------------------------------------------------------->
+
+## Justifying selected sub-determinants
+
+Intervention messages cannot target behavioral determinants directly, because such determinants are defined as generic constructs. On the one hand this enables studying behavioral determinants over a variety of behaviors and populations, but on the other hand, it renders them insufficiently specific to verbalize or visualize. Therefore, interventions target the specific sub-determinants that underlie each determinant. In a way, tehrefore, subdeterminant selection is more important than determinant selection (although it's very important to know to which determinant a sub-determinant belongs; this is required to select the behavior change principles).
+
+To justify choosing a sub-determinant, a fragment like the following can be used:
+
+```{r echo=TRUE, eval=FALSE}
+---
+decision:
+  id: subdeterminants_select_memory
+  type: selection_subdeterminant
+  
+  label: "We will target the expectation that with a higher dose, people remember less."
+  
+  description: "It seems people prefer to remember more of their ecstasy use sessions, while at the same time indicating that if they use a higher dose, they will remember less. This contradiction can be leveraged in an intervention to promote deliberately dosing at a lower intensity."
+  
+  date: 2019-09-03
+  
+  justification:
+    id: justification_subdeterminants_select_memory
+    label: "People simultaneously want to remember more, but realise they remember less if they use a higher dose."
+    description: "This inconsistency can be used in an intervention."
+    assertion:
+      - id: assertion_subdeterminant_high_dose_less_memories
+        label: "People expect to remember less afting using a high dose of ecstasy."
+        source:
+          id: crutzen_using_2017
+          label: "Crutzen, R., Peters, G.-J. Y., & Noijen, J. (2017) Using Confidence Interval-Based Estimation of Relevance to Select Social-Cognitive Determinants for Behavior Change Interventions. Frontiers in Public Health, 5, 165. doi:10.3389/fpubh.2017.00165"
+          doi: "10.3389/fpubh.2017.00165"
+      - id: assertion_subdeterminant_more_memories_preferred
+        label: "People prefer to remember more after having used ecstasy."
+        source:
+          id: partypanel_report_15.1
+          label: "Party Panel report for Party Panel 15.1"
+          spec: "Figure 23, CIBER plot for evaluations"
+          url: "https://partypanel.nl/resultResources/15.1/report.html"
+---
+```
+
+<!----------------------------------------------------------------------------->
+
+## Justifying selected behavior change principles
+
+Once the relevant subdeterminants have been selected, the concrete intervention targets are known. It then becomes possible to think about which behavior change principles (BCPs) are most likely to be effective to change those subdeterminants. Lists of behavior change principles are available as methods of behavior change in the Intervention Mapping book (and the open access article by [Kok et al., 2016](https://doi.org/10.1080/17437199.2015.1077155)), and some of the behavior change techniques may also contain effective elements (see for example [Abraham & Michie, 2008](https://doi.org/10.1037/0278-6133.27.3.379)). In addition, the psychological literature contains a wealth of theories and empirical evidence on behavior change principles that are not included in either list. For example, there's a list being developed of self-determination theory-based behavior change principles (see https://osf.io/2vh8y/).
+
+```{r echo=TRUE, eval=FALSE}
+---
+decision:
+  id: bcps_select_persuasivecomm
+  type: selection_bcp
+  
+  label: "We will use persuasive communication combined with self-reevaluation."
+  
+  description: "The idea is to appeal to people's desire to experience the optimal ecstasy trip. Using this premise, we will prompt reflection on the effects of higher doses on one's memory (and other undesirable effects)."
+  
+  date: 2019-09-03
+  
+  justification:
+    - id: justification_bcps_select_persuasivecomm
+      label: "Persuasive communication and self-reevaluation are both BCPs that can target attitudinal beliefs."
+      assertion:
+        - id: assertion_persuasivecomm_can_target_attitude
+          label: "Persuasive communication can target attitudinal beliefs."
+          source:
+            id: kok_taxonomy_2016
+            label: "Kok, G., Gottlieb, N. H., Peters, G.-J. Y., Mullen, P. D., Parcel, G. S, Ruiter, R. A., Fernández, M. E., Markham, C, Bartholomew, L. K. (2016) A taxonomy of behaviour change methods: an Intervention Mapping approach. Health Psychology Review, 10, 297-312. doi:10.1080/17437199.2015.1077155"
+            doi: "10.1080/17437199.2015.1077155"
+        - id: assertion_selfReeval_can_target_attitude
+          label: "Self-reevaluation can be used to target attitudinal beliefs."
+          source: kok_taxonomy_2016
+
+---
+```
+
+<!----------------------------------------------------------------------------->
+
+## Justifying applications
+
+Behavior change principles (BCPs) are theoretical principles that describe a procedure for successfully leveraging evolutionary learning processes. Because organisms' ability to learn is very general, both ELPs and BCPs are formulated at a general level. Most BCPs can therefore take a variety of conrete forms, enabling applying the same BCPs in interventions that use brochures as are used in smartphone apps or school programmes. This enables applying BCPs in whichever form is optimal given the population, context, or intervention delivery scenario.
+
+To justify an application, a fragment like the following can be used:
+
+```{r echo=TRUE, eval=FALSE}
+---
+decision:
+  id: application_factsheet
+  type: selection_application
+  
+  label: "We will create a factsheet."
+  
+  description: "The intervention source is considered an authoritative source in the target population, and generally dispenses trusted harm reduction information."
+  
+  date: 2019-09-03
+  
+  justification:
+    - id: justification_application_factsheet
+      label: "The intervention source's rapport with the target population means that a factsheet fits well with the target population's expectations, and they are likely to take the information seriously."
+      assertion:
+        - id: assertion_source_organisation_considered_reliable
+          label: "The organisation that will be the intervention's source is considered reliable by the target population."
+          source:
+            - id: year_report
+              label: "The year report of the organisation that will be the intervention's source"
+---
+```
+
+<!----------------------------------------------------------------------------->
+
+## Justifying conditions for effectiveness
+
+Because behavior change principles are defined at a higher level than the very fundamental evolutionary learning processes, their description often leaves many degrees of freedom. Yet, their final application must closely approximate the conditions under which the underlying evolutionary learning processes work. The parameters for this approximation are captured by a BCPs parameters for effectiveness. In addition to these parameters for effectiveness, applications have to meet conditions relating to the target population (e.g. what is acceptable to them), culture (e.g. what fits with the held belief systems), and context (e.g. what is possible in the situation where the intervention will be delivered). Together, all these conditions are called the conditions for effectiveness. Any application of one or more BCPs must meet the relevant conditions for effectiveness.
+
+To justify which conditions for effectiveness exist and how they are satisfied, a fragment like the following can be used:
+
+```{r echo=TRUE, eval=FALSE}
+---
+decision:
+  id: conditions_persuasivecomm
+  type: selection_application
+  
+  label: "Messages need to be relevant and not too discrepant from the beliefs of the individual; can be stimulated by surprise and repetition. Will include arguments."
+  
+  date: 2019-09-03
+  
+  justification:
+    - id: justification_conditions_persuasivecomm
+      label: "The parameters for effectiveness for persuasive communication, as listed in the IM list of methods, are 'Messages need to be relevant and not too discrepant from the beliefs of the individual; can be stimulated by surprise and repetition. Will include arguments.'."
+      assertion:
+        - id: assertion_parameters_persuasivecomm
+          label: "The parameters for effectiveness for persuasive communication are that messages need to be relevant and not too discrepant from the beliefs of the individual; and persuasive communication can be stimulated by surprise and repetition. The message should include one or more arguments."
+          source: kok_taxonomy_2016
+---
+```
+
+<!----------------------------------------------------------------------------->
+
+## Deliberate omissions
 
 There are many more choices to make during intervention development, but two are obviously omitted here and so deserve mentioning. Both capture those factors that contribute to behavior that are not part of the target population's psychology: their environment. First, the environmental conditions themselves; and second, the environmental agent(s) under whose control those enviromental condition(s) are. These are not included in this vignette because this vignette is based on acyclic behavior change diagrams (ABCDs), which are a tool to work with behavior change efforts that directly target individuals; other tools exist for other aspects of intervention development.
 
+<!----------------------------------------------------------------------------->
+
+# Example 2: the Behavior Change Wheel
 
 
+
+## Justifying ...
+
+
+
+## Justifying ...
+
+
+
+## Justifying ...
+
+
+
+
+<!----------------------------------------------------------------------------->
+
+# Epilogue: theory from practice
+
+Some phases in the intervention development process, such as steps 2 and 3 from Intervention Mapping, are relatively comprehensively documented. Navigating through these steps is hard and requires combining competences from many disciplines, but quite tangible procedures have been developed to guide this process. However, other phases lack such comprehensive guidance. This often leaves novice intervention developers somewhat in the dark.
+
+At the same time, experienced intervention developers often did develop implicit procedures they apply when working through these steps. Such procedures often represent valuable lessons for less experienced intervention developers, yet are rarely available in any codified manner. Instead, they are learned through experience, in the best case - which still results in many sub-optimally developed interventions along the way.
+
+Application of `justifier` makes it possible to map the decisions that are taken and identify patterns. In addition, it makes it possible for the intervention developers themselves to identify the weak links in their intervention development process: for example, the points where they take their decisions with weaker justifications.
+
+Because `justifier` is a very general-purpose justification standard, it does not require an a priori specified list of intervention development decisions. Frameworks can be applied to systematically process decisions and justifications, but without frameworks, `justifier` still allows intervention developers an easy way to document their decisions and justifications in a format that can later easily be procesessed.
+
+This means that it is feasible to employ `justifier` even in processes that are entirely new. This means that process evaluations can be thorough even for aspects of a process that could not be specified a priori, and no important information is lost. Decisions and justifications can be automatically imported and categorized to facilitate efficient processing.
+
+<!----------------------------------------------------------------------------->
+
+# Processing justifications
+
+The justifications in this file can be processed with this command:
+
+```{r processing}
+
+processedJustifications <-
+  justifier::load_justifications(here::here("vignettes",
+                                            "justifier-in-intervention-development.Rmd"),
+                                 silent=TRUE);
+
+```
+
+The resulting object then contains the specified decision trees:
+
+```{r decision-tree-example}
+processedJustifications$decisionTrees$bcps_select_persuasivecomm
+```
+
+These can also be displayed as a graph. In this fragment, we generate the graph but add a bit of HTML to make it small enough to fit in this vignette:
+
+```{r decision-graph-example, results="asis"}
+
+cat("\n\n<div style='width:800px'>",
+    processedJustifications$decisionGraphsSvg$bcps_select_persuasivecomm,
+    "</div>\n\n<div style='width:800px'>",
+    processedJustifications$decisionGraphsSvg$subdeterminants_select_memory,
+    "</div>\n\n", sep="");
+
+```
+
+<!----------------------------------------------------------------------------->
+
+# References
+
+Crutzen, R., Peters, G.-J. Y., & Noijen, J. (2017) Using Confidence Interval-Based Estimation of Relevance to Select Social-Cognitive Determinants for Behavior Change Interventions. *Frontiers in Public Health, 5*, 165. https://doi.org/10.3389/fpubh.2017.00165
+
+Kok, G., Gottlieb, N. H., Peters, G.-J. Y., Mullen, P. D., Parcel, G. S, Ruiter, R. A., Fernández, M. E., Markham, C, Bartholomew, L. K. (2016) A taxonomy of behaviour change methods: an Intervention Mapping approach. *Health Psychology Review, 10*, 297-312. https://doi.org/10.1080/17437199.2015.1077155
+
+Leventhal, H. (1970) Findings and Theory in the Study of Fear Communications. *Advances in Experimental Social Psychology, 5*, 119-186. https://doi.org/10.1016/S0065-2601(08)60091-X
 
 

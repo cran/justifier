@@ -4,7 +4,7 @@
 \alias{to_specList}
 \title{Producing a list of specifications}
 \usage{
-to_specList(x, types, type)
+to_specList(x, types, type, idsRequired = TRUE, silent = TRUE)
 }
 \arguments{
 \item{x}{The list to parse.}
@@ -14,6 +14,10 @@ list (the \code{justifierSpecList} object to return).}
 
 \item{type}{The class to assign to each specification
 (in addition to \code{justifierSpec}).}
+
+\item{idsRequired}{Whether to require identifiers.}
+
+\item{silent}{Whether to be chatty or silent.}
 }
 \value{
 A list of classes \code{c("justifierSpecList", types)} where
@@ -33,7 +37,7 @@ exampleFile <-
               package="justifier");
 
 ### Show contents
-cat(readLines(exampleFile), sep="\\n");
+cat(readLines(exampleFile), sep="\n");
 
 ### Load it with yum::load_and_simplify()
 loadedMinutes <- yum::load_and_simplify(exampleFile);

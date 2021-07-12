@@ -8,15 +8,30 @@
 \alias{plot.justifications}
 \title{Load Justifications from a file or multiple files}
 \usage{
-load_justifications(text, file, delimiterRegEx = "^---$",
-  justificationContainer = c("justifier", "justification", "decision",
-  "assertion", "source"), ignoreOddDelimiters = FALSE,
-  encoding = "UTF-8", silent = TRUE)
+load_justifications(
+  text = NULL,
+  file = NULL,
+  delimiterRegEx = "^---$",
+  justificationContainer = c("justifier", "justification", "decision", "assertion",
+    "source"),
+  ignoreOddDelimiters = FALSE,
+  encoding = "UTF-8",
+  storeDecisionGraphSvg = TRUE,
+  silent = TRUE
+)
 
-load_justifications_dir(path, recursive = TRUE, extension = "jmd",
-  regex, justificationContainer = c("justifier", "justification",
-  "decision", "assertion", "source"), delimiterRegEx = "^---$",
-  ignoreOddDelimiters = FALSE, encoding = "UTF-8", silent = TRUE)
+load_justifications_dir(
+  path,
+  recursive = TRUE,
+  extension = "jmd",
+  regex = NULL,
+  justificationContainer = c("justifier", "justification", "decision", "assertion",
+    "source"),
+  delimiterRegEx = "^---$",
+  ignoreOddDelimiters = FALSE,
+  encoding = "UTF-8",
+  silent = TRUE
+)
 }
 \arguments{
 \item{text, file}{As \code{text} or \code{file}, you can specify a \code{file} to read with
@@ -27,7 +42,7 @@ does not point to an existing file, an error is produced (useful if calling
 from other functions). A \code{text} should be a character vector where every
 element is a line of the original source (like provided by \code{\link[base:readLines]{base::readLines()}});
 although if a character vector of one element \emph{and} including at least one
-newline character (\code{\\n}) is provided as \code{text}, it is split at the newline
+newline character (\verb{\\\\n}) is provided as \code{text}, it is split at the newline
 characters using \code{\link[base:strsplit]{base::strsplit()}}. Basically, this behavior means that the
 first argument can be either a character vector or the path to a file; and if
 you're specifying a file and you want to be certain that an error is thrown if
@@ -47,6 +62,9 @@ encountered.}
 
 \item{encoding}{The encoding to use when calling \code{\link[=readLines]{readLines()}}. Set to
 NULL to let \code{\link[=readLines]{readLines()}} guess.}
+
+\item{storeDecisionGraphSvg}{Whether to also produce (and return) the SVG
+for the decision graph.}
 
 \item{silent}{Whether to be silent (TRUE) or informative (FALSE).}
 
@@ -113,12 +131,13 @@ We can now refer to these two specifications later on, for
 example to justify decisions we take.
 ';
 
-load_justifications(text=exampleMinutes);
+justifier::load_justifications(text=exampleMinutes);
 
 ### To load a directory with justifications
+
 examplePath <-
   file.path(system.file(package="justifier"),
             'extdata');
-load_justifications_dir(path=examplePath);
+justifier::load_justifications_dir(path=examplePath);
 
 }

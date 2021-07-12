@@ -5,16 +5,16 @@
 #'
 #' @param x The string or vector
 #' @param regExReplacements A list of two-element character vectors; first element
-#' should be the elemnet to search, and the second element, the replacement.
+#' should be the element to search, and the second element, the replacement.
 #'
 #' @return The sanitized character vector
 #' @export
 #'
 #' @examples justifier::sanitize_for_DiagrammeR("This is or isn't problematic");
-sanitize_for_DiagrammeR <- function(x,
-                                    regExReplacements = list(c("\\\"", "`"),
-                                                             c("\\'", "`"),
-                                                             c("\\\\", "/"))) {
+sanitize_for_DiagrammeR <-
+  function(x,
+           regExReplacements = justifier::opts$get("regExReplacements")) {
+
   for (i in seq_along(regExReplacements)) {
     x <- gsub(regExReplacements[[i]][1],
               regExReplacements[[i]][2],

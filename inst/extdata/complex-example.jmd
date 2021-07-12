@@ -1,0 +1,79 @@
+This is an example of minutes that include
+a source, an assertion, and a justification. For example, in
+the meeting, we can discuss the assertion that sleep deprivation
+affects decision making. We could quickly enter this assertion in
+a machine-readable way in this manner:
+
+---
+decision:
+  -
+    id: decision_1
+    label: "Decision 1"
+    description: "Description of decision 1"
+    justification:
+      -
+        id: justification_1
+        label: "Justification 1"
+        description: "Description of justification 1"
+        assertion:
+          -
+            id: assertion_1
+            label: "Assertion 1"
+            description: "Description of assertion 1"
+            source:
+              -
+                id: source_1
+                label: "Source 1"
+                xdoi: "doi:10.0001/1000-0001.1.0.1"
+                type: "Journal article"
+              -
+                id: source_2
+                label: "Source 2"
+                xdoi: "doi:10.0002/2000-0002.2.0.2"
+                type: "Journal article"
+          -
+            id: assertion_2
+            label: "Assertion 2"
+            description: "Description of assertion 2"
+            source:
+              id: source_3
+              label: "Source 3"
+              xdoi: "doi:10.0003/3000-0003.3.0.3"
+              type: "Journal article"
+        justification:
+          id: justification_1b
+          label: "Justification 1b"
+          description: "Description of justification 1b"
+#          justification:
+#            id: justification_1b1
+#            label: "Justification 1b1"
+#            justification:
+#              id: justification_1b1a
+#              label: "Justification 1b1a"
+      -
+        id: justification_2
+        label: "Justification 2"
+        description: "Description of justification 2"
+        assertion: assertion_2
+  -
+    id: decision_2
+    label: "Decision 2"
+    description: "Description of decision 2"
+    alternatives:
+      -
+        value: 1
+        label: "Alternative 1"
+        description: "Description of alternative 1"
+      -
+        value: 2
+        label: "Alternative 2"
+        description: "Description of alternative 2"
+---
+
+Because it is important to refer to sources, we cite a source as well.
+We have maybe specified that source elsewhere, for example in the
+minutes of our last meeting. That specification may have looked
+like this:
+
+We can now refer to these two specifications later on, for
+example to justify decisions we take.
