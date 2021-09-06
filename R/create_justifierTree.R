@@ -1,5 +1,5 @@
 create_justifierTree <- function(x,
-                                 silent = TRUE) {
+                                 silent = justifier::opts$get("silent")) {
 
   ### Call 'buildListWithChildren' from the right starting point; then
   ### that function will recurse to structure data.tree's 'explicit list'
@@ -13,7 +13,7 @@ create_justifierTree <- function(x,
   if (is.na(targetElement)) {
     msg("Identified no known target element among the names of `x`, so ",
         "assuming it has no children. (The names of `x` are: ",
-        vecTxtQ(names(x)), ").",
+        vecTxtQ(names(x)), ").\n",
         silent = silent);
     x$children <- list("");
     names(x$children) <- NA;
@@ -39,8 +39,9 @@ create_justifierTree <- function(x,
   res <-
     lapply(names(x),
            function(decisionId) {
-             if (all(is.na(names(x[[decisionId]]$children))) &&
-                 (nchar(x[[decisionId]]$children[[1]]) == 0)) {
+             if ((all(unlist(lapply(x[[decisionId]]$children, is.null)))) ||
+                 (all(is.na(names(x[[decisionId]]$children))) &&
+                 (nchar(x[[decisionId]]$children[[1]]) == 0))) {
                msg("No children available, building a tree with only a root.\n",
                    silent = silent);
                x[[decisionId]]$children <- NULL;
@@ -49,6 +50,20 @@ create_justifierTree <- function(x,
                    " children.\n",
                    silent = silent);
              }
+
+             if ((length(x[[decisionId]]$children) == 1) &&
+                 (is.character(x[[decisionId]]$children[[1]]))) {
+               ### This is a list of identifiers
+               childrenNames <- x[[decisionId]]$children[[1]];
+               x[[decisionId]]$children <-
+                 lapply(childrenNames,
+                        function(childName) {
+                          return(list(id = childName))
+                        }
+                 );
+               names(x[[decisionId]]$children) <- childrenNames;
+             }
+
              res <-
                data.tree::FromListExplicit(explicitList = x[[decisionId]],
                                            nameName="id",

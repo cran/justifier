@@ -212,74 +212,19 @@ decide <-
                                     ...));
 }
 
-#' @method c justifierElement
-#' @export
-#' @rdname constructingJustifications
-c.justifierElement <- function(...) {
-
-  ### Get arguments in a list
-  res <- list(...);
-
-  elementType <-
-    unlist(lapply(res,
-                  function(x) {
-                    return(utils::head(class(x), 1));
-                  }));
-
-  if (length(unique(elementType)) != 1) {
-    stop("All elements to concatenate must be of the same type! ",
-         "So either all decisions, or all justifications, or all ",
-         "assertions, or all sources - you passed elements of types ",
-         vecTxtQ(elementType), ", respectively.");
-  }
-
-  elementType <- unique(elementType);
-
-  ### If any of the arguments does itself have multiple elements,
-  ### we need to place the single elements in lists.
-  if (any(unlist(lapply(res, class)) == "multipleJustifierElements")) {
-    res <-
-      lapply(res,
-             function(x) {
-               return(ifelseObj("singleJustifierElement" %in% class(x),
-                                structure(list(x),
-                                          class = c(elementType,
-                                                    "singleJustifierElements",
-                                                    "justifierElement",
-                                                    "justifier")),
-                                x));
-             });
-    ### ... And then remove one level of lists
-    res <- unlist(res,
-                  recursive = FALSE);
-  }
-
-  ### Set names to identifiers
-  ### We can't do this until the parser can handle it.
-  # names(res) <-
-  #   unlist(lapply(res,
-  #                 function(x) {
-  #                   return(x$id);
-  #                 }));
-
-  class(res) <-
-    c(elementType,
-      "multipleJustifierElements",
-      "justifierElement",
-      "justifier"
-    );
-
-  return(res);
-
-}
-
 #' @export
 #' @method print singleJustifierElement
 print.singleJustifierElement <- function(x, ...) {
+
+  if (is.null(x) || (length(x) == 0)) {
+    cat("You passed an empty justifier element.");
+    return(invisible(x));
+  }
+
   cat0("Justifier element of type '",
        class(x)[1], "' and with id '",
        x$id,
-       "'.");
+       "'.\n");
   plot(x);
   return(invisible(x));
 }
@@ -287,6 +232,11 @@ print.singleJustifierElement <- function(x, ...) {
 #' @export
 #' @method print multipleJustifierElements
 print.multipleJustifierElements <- function(x, ...) {
+
+  if (is.null(x) || (length(x) == 0)) {
+    cat("You passed an empty list of justifier elements.");
+  }
+
   cat0("A list of ", length(x), " justifier elements of ",
        "type ", class(x[[1]])[1], " and with identifiers ",
        vecTxtQ(unlist(lapply(x, function(y) return(y$id)))));
@@ -297,6 +247,10 @@ print.multipleJustifierElements <- function(x, ...) {
 #' @export
 #' @method plot singleJustifierElement
 plot.singleJustifierElement <- function(x, ...) {
+
+  if (is.null(x) || (length(x) == 0)) {
+    return(invisible(x));
+  }
 
   tree <-
     create_justifierTree(
@@ -340,7 +294,7 @@ justifierObjectConstructor <-
     }
     if (!any(c("D", "J", "A", "S") == justifierType)) {
       stop("I can only generate an object of type D(ecision), ",
-           "J(ustifier), A(ssertion), or S(ource)!");
+           "J(ustification), A(ssertion), or S(ource)!");
     }
 
     if (is.null(id)) {
@@ -357,10 +311,12 @@ justifierObjectConstructor <-
            S = "justifierSource");
 
     class(res) <-
-      c(justifierClasses[justifierType],
-        "singleJustifierElement",
-        "justifierElement",
-        "justifier");
+      unname(
+        c(justifierClasses[justifierType],
+          "singleJustifierElement",
+          "justifierElement",
+          "justifier")
+      );
 
     return(res);
 
