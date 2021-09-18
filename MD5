@@ -1,4 +1,4 @@
-249ad9e45ee090185d04b2bf9d1ef6b8 *DESCRIPTION
+8de22b29ce15f7c7941bf5938dc248d2 *DESCRIPTION
 ddab5dfb579bc4fe19f43e24f3308802 *NAMESPACE
 7212ddf5bb485af5e3433bb59f665d70 *R/apply_graph_theme.R
 f8fcc6767b942d579d944d870eab3b40 *R/base30toNumeric.R
@@ -20,7 +20,7 @@ eb5d18db3d3ec67729edf8875c548f08 *R/get_workspace.R
 13cbd578b9d76ffac78ccc1e352777c3 *R/has_justifierElement.R
 a472527b8a50fbc630c1412535716ba3 *R/idRef.R
 0da5fa10609e28f2ee245a6e87ccb2fb *R/ifelseObj.R
-5fdb054e70d12870f4e8591627576154 *R/import_from_json.R
+6aa4d77b5d9f658a7c4811af4c7f2493 *R/import_from_json.R
 142e093c4c098d74e8808102cc01cb46 *R/importedOperators.R
 22c6cae2208a61beb2b84d5f2dfc1616 *R/is_spec__and__is_ref.R
 228990e03f2428f0474db043040fd0e3 *R/load_justifications.R
@@ -40,6 +40,7 @@ f5cfefe0e2eaf3dfb2a343f1e0f744b4 *R/repeatStr.R
 d5da6018497d9deee4d34e94cd47ac85 *R/sanitize_for_DiagrammeR.R
 f9261edf153e53efe9774021a11aa659 *R/save_workspace.R
 748aea8428946a03540e3cbe295e35c8 *R/selective_flattening.R
+6c4648c430c69518ef780feff8e67afe *R/set_justifier_classes_to_structured_object.R
 b3b3488b2a644096ed845efa35a01eb1 *R/set_workspace_id.R
 938c49b9b78b19af6470a4a45406db77 *R/spc.R
 52516e231b88c1b5cf64c7088eff1f4d *R/srce.R
@@ -54,13 +55,13 @@ a19d2e35d0e8fff7c5228f5d527aa4c5 *R/workspace.R
 a909d60a680504a7d6aef128e2d974b2 *build/vignette.rds
 ea8eab93de05207476b4c5f91642b478 *inst/doc/general-introduction-to-justifier.R
 63bd97aab8698d6fd35690369f65498e *inst/doc/general-introduction-to-justifier.Rmd
-6f4b7ebae2ee7afb5732f9ad6d8b7bcc *inst/doc/general-introduction-to-justifier.html
+b1beeb9c7c2f3cbd52b6f6e494d4bd2d *inst/doc/general-introduction-to-justifier.html
 5e9c616050e20d662f83529486b1280c *inst/doc/justifier-in-intervention-development.R
 3da1cd4181ae30a5850c9888a3582f9e *inst/doc/justifier-in-intervention-development.Rmd
-39b95cbf2f7291a3fe5c0cedc32e23ca *inst/doc/justifier-in-intervention-development.html
+bfebfd456beb135492f116268f6880a4 *inst/doc/justifier-in-intervention-development.html
 f5e256c0f7d928e386682575fca3e65d *inst/doc/justifier-in-study-design.R
 55eada2ee86020695813a3886e51e72c *inst/doc/justifier-in-study-design.Rmd
-375adb84c86418cf9ce3fc2eae2963b5 *inst/doc/justifier-in-study-design.html
+1fa7d73d25d27d045b71f5f67b9d28fd *inst/doc/justifier-in-study-design.html
 f1fee3033b9a5668d422a503b6eb56a1 *inst/extdata/complex-example.jmd
 8c79824f6f6bcbff2270e3a45daf159a *inst/extdata/example-minutes.jmd
 ba3c99c50d9365d1842be3a683d1da64 *inst/extdata/justifier-example-study-framework-specification.jmd

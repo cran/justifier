@@ -1,7 +1,7 @@
 Package: justifier
 Title: Human and Machine-Readable Justifications and Justified
         Decisions Based on 'YAML'
-Version: 0.2.1
+Version: 0.2.2
 Authors@R: c(
     person(given = "Gjalt-Jorn Ygram",
            family = "Peters",
@@ -33,9 +33,9 @@ Suggests: covr, here, jsonlite (>= 1.7), knitr, rmarkdown, testthat
 VignetteBuilder: knitr
 RoxygenNote: 7.1.1
 NeedsCompilation: no
-Packaged: 2021-09-05 14:10:02 UTC; micro
+Packaged: 2021-09-17 22:47:07 UTC; micro
 Author: Gjalt-Jorn Ygram Peters [aut, cre]
     (<https://orcid.org/0000-0002-0336-9589>),
   Szilvia Zorgo [ctb] (<https://orcid.org/0000-0002-6916-2097>)
 Repository: CRAN
-Date/Publication: 2021-09-06 12:30:02 UTC
+Date/Publication: 2021-09-18 04:10:02 UTC
