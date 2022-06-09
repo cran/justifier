@@ -12,11 +12,23 @@
 
 <meta name="author" content="Gjalt-Jorn Peters &amp; Marta Marques" />
 
-<meta name="date" content="2021-09-18" />
+<meta name="date" content="2022-06-08" />
 
 <title>Using justifier in behavior change intervention development</title>
 
-<script src="data:application/javascript;base64,Ly8gUGFuZG9jIDIuOSBhZGRzIGF0dHJpYnV0ZXMgb24gYm90aCBoZWFkZXIgYW5kIGRpdi4gV2UgcmVtb3ZlIHRoZSBmb3JtZXIgKHRvCi8vIGJlIGNvbXBhdGlibGUgd2l0aCB0aGUgYmVoYXZpb3Igb2YgUGFuZG9jIDwgMi44KS4KZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGZ1bmN0aW9uKGUpIHsKICB2YXIgaHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCJkaXYuc2VjdGlvbltjbGFzcyo9J2xldmVsJ10gPiA6Zmlyc3QtY2hpbGQiKTsKICB2YXIgaSwgaCwgYTsKICBmb3IgKGkgPSAwOyBpIDwgaHMubGVuZ3RoOyBpKyspIHsKICAgIGggPSBoc1tpXTsKICAgIGlmICghL15oWzEtNl0kL2kudGVzdChoLnRhZ05hbWUpKSBjb250aW51ZTsgIC8vIGl0IHNob3VsZCBiZSBhIGhlYWRlciBoMS1oNgogICAgYSA9IGguYXR0cmlidXRlczsKICAgIHdoaWxlIChhLmxlbmd0aCA+IDApIGgucmVtb3ZlQXR0cmlidXRlKGFbMF0ubmFtZSk7CiAgfQp9KTsK"></script>
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -26,6 +38,7 @@
   div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   ul.task-list{list-style: none;}
     </style>
+
 
 
 <style type="text/css">
@@ -127,7 +140,187 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<link rel="stylesheet" href="data:text/css,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" type="text/css" />
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
 
 
 
@@ -139,35 +332,97 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<h1 class="title toc-ignore">Using justifier in behavior change intervention development</h1>
+<h1 class="title toc-ignore">Using justifier in behavior change
+intervention development</h1>
 <h4 class="author">Gjalt-Jorn Peters &amp; Marta Marques</h4>
-<h4 class="date">2021-09-18</h4>
+<h4 class="date">2022-06-08</h4>
 
 
 
 <!----------------------------------------------------------------------------->
 <div id="background" class="section level1">
 <h1>Background</h1>
-<p>Behavior change is extremely hard. Or rather, behavior change experts are only involved for behavior change challenges that others have failed at repeatedly, which boils down to the same thing when it comes to behavior change intervention development. Because this is complicated, a series of tools has been developed to assist with different aspects of the intervention development process. This vignette shows how decisions taken when applying two such tools can be documented using <code>justifier</code>: Intervention Mapping and the Behavior Change Wheel.</p>
-<p>In theory, each of these development processes is underlied by a wealth of insights and lessons about the many choices that have to be made during the intervention development procedure. Yet, in the individual intervention development processes, the decisions that are taken and their justifications are often poorly documented. This prohibits learning many potential lessons from such processes.</p>
-<p>The <code>justifier</code> package offers a solution to this situation. It provides a standard for documenting decisions and their justifications using a format that can easily be integrated in text files, such as meeting minutes. The format is simultaneously human-readable and machine readable. The latter enables automatically reading all justifications in a project into a software package for further processing.</p>
-<p>By applying justification frameworks, the decisions and underlying justifications can be categorized, enabling automatically extracting all decisions and justifications that are relevant to, for example, a given phase in intervention development. This facilitates learning from intervention development in practice without first requiring coding of, for example, minutes.</p>
+<p>Behavior change is extremely hard. Or rather, behavior change experts
+are only involved for behavior change challenges that others have failed
+at repeatedly, which boils down to the same thing when it comes to
+behavior change intervention development. Because this is complicated, a
+series of tools has been developed to assist with different aspects of
+the intervention development process. This vignette shows how decisions
+taken when applying two such tools can be documented using
+<code>justifier</code>: Intervention Mapping and the Behavior Change
+Wheel.</p>
+<p>In theory, each of these development processes is underlied by a
+wealth of insights and lessons about the many choices that have to be
+made during the intervention development procedure. Yet, in the
+individual intervention development processes, the decisions that are
+taken and their justifications are often poorly documented. This
+prohibits learning many potential lessons from such processes.</p>
+<p>The <code>justifier</code> package offers a solution to this
+situation. It provides a standard for documenting decisions and their
+justifications using a format that can easily be integrated in text
+files, such as meeting minutes. The format is simultaneously
+human-readable and machine readable. The latter enables automatically
+reading all justifications in a project into a software package for
+further processing.</p>
+<p>By applying justification frameworks, the decisions and underlying
+justifications can be categorized, enabling automatically extracting all
+decisions and justifications that are relevant to, for example, a given
+phase in intervention development. This facilitates learning from
+intervention development in practice without first requiring coding of,
+for example, minutes.</p>
 <!----------------------------------------------------------------------------->
 <div id="intervention-mapping" class="section level2">
 <h2>Intervention Mapping</h2>
-<p>The first tool is the Intervention Mapping protocol. It can be used for intervention development, analysis (and potentially improvement or adaptation) of existing interventions, and for description of the intervention development process or products. It is extremely comprehensive, which is at once one or its core strengths and main weaknesses. On the one hand, if one follows the Intervention Mapping protocol, one is assured of a very thorough development process, where all decisions are solidly informed by theory and evidence. On the other hand, exactly because of this, Intervention Mapping is often perceived as unwieldy and too slow to follow in practice. Nonetheless, Intervention Mapping has been used for the development of a large number of interventions (<a href="https://interventionmapping.com/references" class="uri">https://interventionmapping.com/references</a> lists around 1000 articles describing around 300 interventions).</p>
-<p>A very rough picture of the structure of Intervention Mapping can be painted by the six ‘steps’ that are iteratively and nonlinearly applied:</p>
+<p>The first tool is the Intervention Mapping protocol. It can be used
+for intervention development, analysis (and potentially improvement or
+adaptation) of existing interventions, and for description of the
+intervention development process or products. It is extremely
+comprehensive, which is at once one or its core strengths and main
+weaknesses. On the one hand, if one follows the Intervention Mapping
+protocol, one is assured of a very thorough development process, where
+all decisions are solidly informed by theory and evidence. On the other
+hand, exactly because of this, Intervention Mapping is often perceived
+as unwieldy and too slow to follow in practice. Nonetheless,
+Intervention Mapping has been used for the development of a large number
+of interventions (<a href="https://interventionmapping.com/references" class="uri">https://interventionmapping.com/references</a> lists around
+1000 articles describing around 300 interventions).</p>
+<p>A very rough picture of the structure of Intervention Mapping can be
+painted by the six ‘steps’ that are iteratively and nonlinearly
+applied:</p>
 <ol style="list-style-type: decimal">
-<li>Needs assessment: obtaining a comprehensive overview of the problem, needs, and capacities</li>
-<li>Logic model of the behavior: mapping the determinants and environmental conditions determining the behavior</li>
-<li>Logic model of change: selecting methods of behavior change and translate to applications</li>
-<li>Program development: combine applications into a coherent program, pretest, and produce</li>
+<li>Needs assessment: obtaining a comprehensive overview of the problem,
+needs, and capacities</li>
+<li>Logic model of the behavior: mapping the determinants and
+environmental conditions determining the behavior</li>
+<li>Logic model of change: selecting methods of behavior change and
+translate to applications</li>
+<li>Program development: combine applications into a coherent program,
+pretest, and produce</li>
 <li>Implementation: anticipate on implementation of the program</li>
 <li>Evaluation: evaluate the program and optimize where necessary</li>
 </ol>
-<p>Of these six steps, steps 2 and 3 will be used to illustrate how to use <code>justifier</code> when developing intervention using the Intervention Mapping protocol. There are two reasons for this.</p>
-<p>First, these two steps will be the most familiar to psychologists involved in behavior change intervention development. The determinant studies conducted in step 2 have been part and parcel of health promotion and education efforts for decades, long before the term ‘behavior change science’ gained popularity. Similarly, studies into behavior change principles (called ‘methods for behavior change’ in Intervention Mapping, and called ‘behavior change techniques’ in the Behavior Change Wheel) have been conducted for decades within various subfields of psychology (see e.g. Leventhal, 1970).</p>
-<p>Second, a tool has been developed that conveniently captures and makes explicit a number of important products of steps 2 and 3: the Acyclic Behavior Change Diagram (ABCD). The ABCD generates a visualisation of the full logic model of change, showing many of the structural and causal assumptions underlying an intervention. This diagram is generated on the basis of a matrix (the ABCD matrix), which has seven columns, each of which represents a series of decisions in the intervention development process. As such, justifying each of these decisions comprises a substantial proportion of the justification of the entire intervention development process.</p>
+<p>Of these six steps, steps 2 and 3 will be used to illustrate how to
+use <code>justifier</code> when developing intervention using the
+Intervention Mapping protocol. There are two reasons for this.</p>
+<p>First, these two steps will be the most familiar to psychologists
+involved in behavior change intervention development. The determinant
+studies conducted in step 2 have been part and parcel of health
+promotion and education efforts for decades, long before the term
+‘behavior change science’ gained popularity. Similarly, studies into
+behavior change principles (called ‘methods for behavior change’ in
+Intervention Mapping, and called ‘behavior change techniques’ in the
+Behavior Change Wheel) have been conducted for decades within various
+subfields of psychology (see e.g. Leventhal, 1970).</p>
+<p>Second, a tool has been developed that conveniently captures and
+makes explicit a number of important products of steps 2 and 3: the
+Acyclic Behavior Change Diagram (ABCD). The ABCD generates a
+visualisation of the full logic model of change, showing many of the
+structural and causal assumptions underlying an intervention. This
+diagram is generated on the basis of a matrix (the ABCD matrix), which
+has seven columns, each of which represents a series of decisions in the
+intervention development process. As such, justifying each of these
+decisions comprises a substantial proportion of the justification of the
+entire intervention development process.</p>
 <!----------------------------------------------------------------------------->
 </div>
 <div id="behavior-change-wheel" class="section level2">
@@ -177,13 +432,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="example-1-intervention-mapping-acyclic-behavior-change-diagrams" class="section level1">
-<h1>Example 1: Intervention Mapping (Acyclic Behavior Change Diagrams)</h1>
-<p>This first example follows parts of steps 2 and 3 of the Intervention Mapping protocol at the hand of the seven columns of the Acyclic Behavior Change Diagram matrix.</p>
+<h1>Example 1: Intervention Mapping (Acyclic Behavior Change
+Diagrams)</h1>
+<p>This first example follows parts of steps 2 and 3 of the Intervention
+Mapping protocol at the hand of the seven columns of the Acyclic
+Behavior Change Diagram matrix.</p>
 <!----------------------------------------------------------------------------->
 <div id="justifying-the-selected-target-behavior" class="section level2">
 <h2>Justifying the selected target behavior</h2>
-<p>Before it is possible to analyse why target population members exhibit a behavior they exhibit, selecting such a target behavior is necessary. Behavior change interventions do, after all, need a target behavior.</p>
-<p>To include the decision to select a target behavior, a fragment like this can be used:</p>
+<p>Before it is possible to analyse why target population members
+exhibit a behavior they exhibit, selecting such a target behavior is
+necessary. Behavior change interventions do, after all, need a target
+behavior.</p>
+<p>To include the decision to select a target behavior, a fragment like
+this can be used:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>decision<span class="sc">:</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  id<span class="sc">:</span> target_behavior_selection</span>
@@ -207,11 +469,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        label<span class="sc">:</span> <span class="st">&quot;Expert interview in document &#39;exp_interview_1.docx&#39;.&quot;</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        type<span class="sc">:</span> <span class="st">&quot;external expert opinion&quot;</span></span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
-<p>Every <code>justifier</code> element must have a unique identifier (<code>id</code>), and in addition, can optionally have a type. Specifying a type for a decision will enable automatic processing when a framework is applied. Frameworks specify, for decisons of given types, how to organise them relative to each other (e.g. the order of the decisisons in a procedure), what acceptable values for the decisions are (if any), and allow some validation to check for those values.</p>
-<p>In addition, to an <code>id</code>, all <code>justifier</code> elements can have a <code>label</code> and a <code>description</code>. A <code>label</code> is a human-readable short title for the element, and a <code>description</code> allows for more details. The <code>date</code> field allows specifying when the decision was taken.</p>
-<p>In <code>justifier</code>, every <code>decision</code> has a <code>justification</code>. Each <code>justification</code> is based on one or more <code>assertion</code>s, which are each based on one or more <code>source</code>s. A <code>source</code> can be an academic article, an unpublished report, the result of a consensus meeting with experts, the opinion of the planning group (an Intervention Mapping term), or even the opinion of one individual. The explicit definition of <code>source</code>s makes it possible to trace back the origins of <code>assertion</code>s. An <code>assertion</code> is an assumption or statement of fact. This is loosely based on assertions as defined in <a href="http://nanopub.org/wordpress/">nanopublicatios</a>; in this sense, a <code>source</code> can be considered a very rough specification of an <code>assertion</code>s provenance). Thus, a list of all <code>assertion</code>s documented in an interventions justification shows what the intervention developers knew about, or believed to be true about, the world (and a list of the sources shows where that knowledge or those assumptions came from).</p>
-<p>The <code>justification</code>s combine one or more <code>assertion</code>s into coherent reasoning supporting a <code>decision</code>. A <code>decision</code> can have multiple <code>justification</code>s (but the entire justification can also be formulated within one <code>justification</code> element; so the number of <code>justification</code>s on which a decision is based is not necessarily a proxy for how well-supported a decision is).</p>
-<p>Any <code>source</code>, <code>assertion</code>, and <code>justification</code> can be re-used; they have, after all, unique identifiers. In addition, these elements can be specified on their own, or within their parent elements. For example, the following constitutes a valid <code>source</code> definition:</p>
+<p>Every <code>justifier</code> element must have a unique identifier
+(<code>id</code>), and in addition, can optionally have a type.
+Specifying a type for a decision will enable automatic processing when a
+framework is applied. Frameworks specify, for decisons of given types,
+how to organise them relative to each other (e.g. the order of the
+decisisons in a procedure), what acceptable values for the decisions are
+(if any), and allow some validation to check for those values.</p>
+<p>In addition, to an <code>id</code>, all <code>justifier</code>
+elements can have a <code>label</code> and a <code>description</code>. A
+<code>label</code> is a human-readable short title for the element, and
+a <code>description</code> allows for more details. The
+<code>date</code> field allows specifying when the decision was
+taken.</p>
+<p>In <code>justifier</code>, every <code>decision</code> has a
+<code>justification</code>. Each <code>justification</code> is based on
+one or more <code>assertion</code>s, which are each based on one or more
+<code>source</code>s. A <code>source</code> can be an academic article,
+an unpublished report, the result of a consensus meeting with experts,
+the opinion of the planning group (an Intervention Mapping term), or
+even the opinion of one individual. The explicit definition of
+<code>source</code>s makes it possible to trace back the origins of
+<code>assertion</code>s. An <code>assertion</code> is an assumption or
+statement of fact. This is loosely based on assertions as defined in <a href="https://nanopub.org/wordpress/">nanopublicatios</a>; in this
+sense, a <code>source</code> can be considered a very rough
+specification of an <code>assertion</code>s provenance). Thus, a list of
+all <code>assertion</code>s documented in an interventions justification
+shows what the intervention developers knew about, or believed to be
+true about, the world (and a list of the sources shows where that
+knowledge or those assumptions came from).</p>
+<p>The <code>justification</code>s combine one or more
+<code>assertion</code>s into coherent reasoning supporting a
+<code>decision</code>. A <code>decision</code> can have multiple
+<code>justification</code>s (but the entire justification can also be
+formulated within one <code>justification</code> element; so the number
+of <code>justification</code>s on which a decision is based is not
+necessarily a proxy for how well-supported a decision is).</p>
+<p>Any <code>source</code>, <code>assertion</code>, and
+<code>justification</code> can be re-used; they have, after all, unique
+identifiers. In addition, these elements can be specified on their own,
+or within their parent elements. For example, the following constitutes
+a valid <code>source</code> definition:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>source<span class="sc">:</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  id<span class="sc">:</span> west_development_2019</span>
@@ -223,8 +521,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="justifying-selected-sub-behaviors" class="section level2">
 <h2>Justifying selected sub-behaviors</h2>
-<p>Once the target behavior is clear, Intervention Mapping prompts identification of all sub-behaviors that make up the target behavior (called ‘performance objectives’ in IM vocabulary). Sub-behaviors are distinguished by having different psychological determinants and/or environmental conditions. Not all sub-behaviors are selected for intervention. Resource constraints often necesitate selection.</p>
-<p>To justify choosing or not choosing a sub-behavior, a fragment like the following can be used:</p>
+<p>Once the target behavior is clear, Intervention Mapping prompts
+identification of all sub-behaviors that make up the target behavior
+(called ‘performance objectives’ in IM vocabulary). Sub-behaviors are
+distinguished by having different psychological determinants and/or
+environmental conditions. Not all sub-behaviors are selected for
+intervention. Resource constraints often necesitate selection.</p>
+<p>To justify choosing or not choosing a sub-behavior, a fragment like
+the following can be used:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>decision<span class="sc">:</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  id<span class="sc">:</span> sub_behavior_selection</span>
@@ -248,13 +552,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        label<span class="sc">:</span> <span class="st">&quot;Conditions for getting drugs tested&quot;</span></span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        url<span class="sc">:</span> <span class="st">&quot;https://www.drugs-test.nl/voorwaarden&quot;</span></span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code></pre></div>
-<p>As can be seen here, there is no real difference between the justification and assertion; for such simple facts, there is not much reasoning required to tie it into a decision.</p>
+<p>As can be seen here, there is no real difference between the
+justification and assertion; for such simple facts, there is not much
+reasoning required to tie it into a decision.</p>
 <!----------------------------------------------------------------------------->
 </div>
 <div id="justifying-selected-determinants" class="section level2">
 <h2>Justifying selected determinants</h2>
-<p>Ideally, for every performance objective, all determinants are mapped as comprehensively as possible (as are the enviromental conditions and the environmental agents who control those, but ABCDs deal only with behavior change within target population individuals). From this full overview of potentially relevant determinants, resource constraints will often necessitate selection of a subset of determinants to target in an intervention.</p>
-<p>To justify choosing or not choosing a determinant for a sub-behavior, a fragment like the following can be used:</p>
+<p>Ideally, for every performance objective, all determinants are mapped
+as comprehensively as possible (as are the enviromental conditions and
+the environmental agents who control those, but ABCDs deal only with
+behavior change within target population individuals). From this full
+overview of potentially relevant determinants, resource constraints will
+often necessitate selection of a subset of determinants to target in an
+intervention.</p>
+<p>To justify choosing or not choosing a determinant for a sub-behavior,
+a fragment like the following can be used:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>decision<span class="sc">:</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  id<span class="sc">:</span> determinants_forgo_habit</span>
@@ -281,8 +594,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="justifying-selected-sub-determinants" class="section level2">
 <h2>Justifying selected sub-determinants</h2>
-<p>Intervention messages cannot target behavioral determinants directly, because such determinants are defined as generic constructs. On the one hand this enables studying behavioral determinants over a variety of behaviors and populations, but on the other hand, it renders them insufficiently specific to verbalize or visualize. Therefore, interventions target the specific sub-determinants that underlie each determinant. In a way, tehrefore, subdeterminant selection is more important than determinant selection (although it’s very important to know to which determinant a sub-determinant belongs; this is required to select the behavior change principles).</p>
-<p>To justify choosing a sub-determinant, a fragment like the following can be used:</p>
+<p>Intervention messages cannot target behavioral determinants directly,
+because such determinants are defined as generic constructs. On the one
+hand this enables studying behavioral determinants over a variety of
+behaviors and populations, but on the other hand, it renders them
+insufficiently specific to verbalize or visualize. Therefore,
+interventions target the specific sub-determinants that underlie each
+determinant. In a way, tehrefore, subdeterminant selection is more
+important than determinant selection (although it’s very important to
+know to which determinant a sub-determinant belongs; this is required to
+select the behavior change principles).</p>
+<p>To justify choosing a sub-determinant, a fragment like the following
+can be used:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>decision<span class="sc">:</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  id<span class="sc">:</span> subdeterminants_select_memory</span>
@@ -317,7 +640,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="justifying-selected-behavior-change-principles" class="section level2">
 <h2>Justifying selected behavior change principles</h2>
-<p>Once the relevant subdeterminants have been selected, the concrete intervention targets are known. It then becomes possible to think about which behavior change principles (BCPs) are most likely to be effective to change those subdeterminants. Lists of behavior change principles are available as methods of behavior change in the Intervention Mapping book (and the open access article by <a href="https://doi.org/10.1080/17437199.2015.1077155">Kok et al., 2016</a>), and some of the behavior change techniques may also contain effective elements (see for example <a href="https://doi.org/10.1037/0278-6133.27.3.379">Abraham &amp; Michie, 2008</a>). In addition, the psychological literature contains a wealth of theories and empirical evidence on behavior change principles that are not included in either list. For example, there’s a list being developed of self-determination theory-based behavior change principles (see <a href="https://osf.io/2vh8y/" class="uri">https://osf.io/2vh8y/</a>).</p>
+<p>Once the relevant subdeterminants have been selected, the concrete
+intervention targets are known. It then becomes possible to think about
+which behavior change principles (BCPs) are most likely to be effective
+to change those subdeterminants. Lists of behavior change principles are
+available as methods of behavior change in the Intervention Mapping book
+(and the open access article by <a href="https://doi.org/10.1080/17437199.2015.1077155">Kok et al.,
+2016</a>), and some of the behavior change techniques may also contain
+effective elements (see for example <a href="https://doi.org/10.1037/0278-6133.27.3.379">Abraham &amp; Michie,
+2008</a>). In addition, the psychological literature contains a wealth
+of theories and empirical evidence on behavior change principles that
+are not included in either list. For example, there’s a list being
+developed of self-determination theory-based behavior change principles
+(see <a href="https://osf.io/2vh8y/" class="uri">https://osf.io/2vh8y/</a>).</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>decision<span class="sc">:</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  id<span class="sc">:</span> bcps_select_persuasivecomm</span>
@@ -348,8 +683,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="justifying-applications" class="section level2">
 <h2>Justifying applications</h2>
-<p>Behavior change principles (BCPs) are theoretical principles that describe a procedure for successfully leveraging evolutionary learning processes. Because organisms’ ability to learn is very general, both ELPs and BCPs are formulated at a general level. Most BCPs can therefore take a variety of conrete forms, enabling applying the same BCPs in interventions that use brochures as are used in smartphone apps or school programmes. This enables applying BCPs in whichever form is optimal given the population, context, or intervention delivery scenario.</p>
-<p>To justify an application, a fragment like the following can be used:</p>
+<p>Behavior change principles (BCPs) are theoretical principles that
+describe a procedure for successfully leveraging evolutionary learning
+processes. Because organisms’ ability to learn is very general, both
+ELPs and BCPs are formulated at a general level. Most BCPs can therefore
+take a variety of conrete forms, enabling applying the same BCPs in
+interventions that use brochures as are used in smartphone apps or
+school programmes. This enables applying BCPs in whichever form is
+optimal given the population, context, or intervention delivery
+scenario.</p>
+<p>To justify an application, a fragment like the following can be
+used:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>decision<span class="sc">:</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  id<span class="sc">:</span> application_factsheet</span>
@@ -375,8 +719,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="justifying-conditions-for-effectiveness" class="section level2">
 <h2>Justifying conditions for effectiveness</h2>
-<p>Because behavior change principles are defined at a higher level than the very fundamental evolutionary learning processes, their description often leaves many degrees of freedom. Yet, their final application must closely approximate the conditions under which the underlying evolutionary learning processes work. The parameters for this approximation are captured by a BCPs parameters for effectiveness. In addition to these parameters for effectiveness, applications have to meet conditions relating to the target population (e.g. what is acceptable to them), culture (e.g. what fits with the held belief systems), and context (e.g. what is possible in the situation where the intervention will be delivered). Together, all these conditions are called the conditions for effectiveness. Any application of one or more BCPs must meet the relevant conditions for effectiveness.</p>
-<p>To justify which conditions for effectiveness exist and how they are satisfied, a fragment like the following can be used:</p>
+<p>Because behavior change principles are defined at a higher level than
+the very fundamental evolutionary learning processes, their description
+often leaves many degrees of freedom. Yet, their final application must
+closely approximate the conditions under which the underlying
+evolutionary learning processes work. The parameters for this
+approximation are captured by a BCPs parameters for effectiveness. In
+addition to these parameters for effectiveness, applications have to
+meet conditions relating to the target population (e.g. what is
+acceptable to them), culture (e.g. what fits with the held belief
+systems), and context (e.g. what is possible in the situation where the
+intervention will be delivered). Together, all these conditions are
+called the conditions for effectiveness. Any application of one or more
+BCPs must meet the relevant conditions for effectiveness.</p>
+<p>To justify which conditions for effectiveness exist and how they are
+satisfied, a fragment like the following can be used:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>decision<span class="sc">:</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  id<span class="sc">:</span> conditions_persuasivecomm</span>
@@ -398,7 +755,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="deliberate-omissions" class="section level2">
 <h2>Deliberate omissions</h2>
-<p>There are many more choices to make during intervention development, but two are obviously omitted here and so deserve mentioning. Both capture those factors that contribute to behavior that are not part of the target population’s psychology: their environment. First, the environmental conditions themselves; and second, the environmental agent(s) under whose control those enviromental condition(s) are. These are not included in this vignette because this vignette is based on acyclic behavior change diagrams (ABCDs), which are a tool to work with behavior change efforts that directly target individuals; other tools exist for other aspects of intervention development.</p>
+<p>There are many more choices to make during intervention development,
+but two are obviously omitted here and so deserve mentioning. Both
+capture those factors that contribute to behavior that are not part of
+the target population’s psychology: their environment. First, the
+environmental conditions themselves; and second, the environmental
+agent(s) under whose control those enviromental condition(s) are. These
+are not included in this vignette because this vignette is based on
+acyclic behavior change diagrams (ABCDs), which are a tool to work with
+behavior change efforts that directly target individuals; other tools
+exist for other aspects of intervention development.</p>
 <!----------------------------------------------------------------------------->
 </div>
 </div>
@@ -417,20 +783,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="epilogue-theory-from-practice" class="section level1">
 <h1>Epilogue: theory from practice</h1>
-<p>Some phases in the intervention development process, such as steps 2 and 3 from Intervention Mapping, are relatively comprehensively documented. Navigating through these steps is hard and requires combining competences from many disciplines, but quite tangible procedures have been developed to guide this process. However, other phases lack such comprehensive guidance. This often leaves novice intervention developers somewhat in the dark.</p>
-<p>At the same time, experienced intervention developers often did develop implicit procedures they apply when working through these steps. Such procedures often represent valuable lessons for less experienced intervention developers, yet are rarely available in any codified manner. Instead, they are learned through experience, in the best case - which still results in many sub-optimally developed interventions along the way.</p>
-<p>Application of <code>justifier</code> makes it possible to map the decisions that are taken and identify patterns. In addition, it makes it possible for the intervention developers themselves to identify the weak links in their intervention development process: for example, the points where they take their decisions with weaker justifications.</p>
-<p>Because <code>justifier</code> is a very general-purpose justification standard, it does not require an a priori specified list of intervention development decisions. Frameworks can be applied to systematically process decisions and justifications, but without frameworks, <code>justifier</code> still allows intervention developers an easy way to document their decisions and justifications in a format that can later easily be procesessed.</p>
-<p>This means that it is feasible to employ <code>justifier</code> even in processes that are entirely new. This means that process evaluations can be thorough even for aspects of a process that could not be specified a priori, and no important information is lost. Decisions and justifications can be automatically imported and categorized to facilitate efficient processing.</p>
+<p>Some phases in the intervention development process, such as steps 2
+and 3 from Intervention Mapping, are relatively comprehensively
+documented. Navigating through these steps is hard and requires
+combining competences from many disciplines, but quite tangible
+procedures have been developed to guide this process. However, other
+phases lack such comprehensive guidance. This often leaves novice
+intervention developers somewhat in the dark.</p>
+<p>At the same time, experienced intervention developers often did
+develop implicit procedures they apply when working through these steps.
+Such procedures often represent valuable lessons for less experienced
+intervention developers, yet are rarely available in any codified
+manner. Instead, they are learned through experience, in the best case -
+which still results in many sub-optimally developed interventions along
+the way.</p>
+<p>Application of <code>justifier</code> makes it possible to map the
+decisions that are taken and identify patterns. In addition, it makes it
+possible for the intervention developers themselves to identify the weak
+links in their intervention development process: for example, the points
+where they take their decisions with weaker justifications.</p>
+<p>Because <code>justifier</code> is a very general-purpose
+justification standard, it does not require an a priori specified list
+of intervention development decisions. Frameworks can be applied to
+systematically process decisions and justifications, but without
+frameworks, <code>justifier</code> still allows intervention developers
+an easy way to document their decisions and justifications in a format
+that can later easily be procesessed.</p>
+<p>This means that it is feasible to employ <code>justifier</code> even
+in processes that are entirely new. This means that process evaluations
+can be thorough even for aspects of a process that could not be
+specified a priori, and no important information is lost. Decisions and
+justifications can be automatically imported and categorized to
+facilitate efficient processing.</p>
 <!----------------------------------------------------------------------------->
 </div>
 <div id="processing-justifications" class="section level1">
 <h1>Processing justifications</h1>
-<p>The justifications in this file can be processed with this command:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>processedJustifications <span class="ot">&lt;-</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  justifier<span class="sc">::</span><span class="fu">load_justifications</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;vignettes&quot;</span>,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">&quot;justifier-in-intervention-development.Rmd&quot;</span>),</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">silent=</span><span class="cn">TRUE</span>);</span></code></pre></div>
+<p>The justifications in this file can be processed with this
+command:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>processedJustifications <span class="ot">&lt;-</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  justifier<span class="sc">::</span><span class="fu">load_justifications</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;vignettes&quot;</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                                            <span class="st">&quot;justifier-in-intervention-development.Rmd&quot;</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">silent=</span><span class="cn">TRUE</span>);</span></code></pre></div>
 <p>The resulting object then contains the specified decision trees:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>processedJustifications<span class="sc">$</span>decisionTrees<span class="sc">$</span>bcps_select_persuasivecomm</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;                                              levelName</span></span>
@@ -440,63 +835,123 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4      ¦   °--kok_taxonomy_2016                       </span></span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5      °--assertion_selfReeval_can_target_attitude    </span></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6          °--kok_taxonomy_2016</span></span></code></pre></div>
-<p>These can also be displayed as a graph. In this fragment, we generate the graph but add a bit of HTML to make it small enough to fit in this vignette:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">&lt;div style=&#39;width:800px&#39;&gt;&quot;</span>,</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    processedJustifications<span class="sc">$</span>decisionGraphsSvg<span class="sc">$</span>bcps_select_persuasivecomm,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;&lt;/div&gt;</span><span class="sc">\n\n</span><span class="st">&lt;div style=&#39;width:800px&#39;&gt;&quot;</span>,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    processedJustifications<span class="sc">$</span>decisionGraphsSvg<span class="sc">$</span>subdeterminants_select_memory,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;&lt;/div&gt;</span><span class="sc">\n\n</span><span class="st">&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>);</span></code></pre></div>
+<p>These can also be displayed as a graph. In this fragment, we generate
+the graph but add a bit of HTML to make it small enough to fit in this
+vignette:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n\n</span><span class="st">&lt;div style=&#39;width:800px&#39;&gt;&quot;</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    processedJustifications<span class="sc">$</span>decisionGraphsSvg<span class="sc">$</span>bcps_select_persuasivecomm,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;&lt;/div&gt;</span><span class="sc">\n\n</span><span class="st">&lt;div style=&#39;width:800px&#39;&gt;&quot;</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    processedJustifications<span class="sc">$</span>decisionGraphsSvg<span class="sc">$</span>subdeterminants_select_memory,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;&lt;/div&gt;</span><span class="sc">\n\n</span><span class="st">&quot;</span>, <span class="at">sep=</span><span class="st">&quot;&quot;</span>);</span></code></pre></div>
 <div style="width:800px">
 <svg viewBox="0.00 0.00 1201.28 350.40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 346.4)">
 <title>
 %0
 </title>
-<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-346.4 1197.2772,-346.4 1197.2772,4 -4,4"></polygon> <!-- 1&#45;&gt;2 --> <g id="edge1" class="edge">
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-346.4 1197.2772,-346.4 1197.2772,4 -4,4"></polygon>
+<!-- 1&#45;&gt;2 --> <g id="edge1" class="edge">
 <title>
 1-&gt;2
 </title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M134.176,-171.2C134.176,-171.2 430.7776,-171.2 430.7776,-171.2"></path> </g> <!-- 2&#45;&gt;3 --> <g id="edge2" class="edge">
+<path fill="none" stroke="#000000" stroke-width="2" d="M134.176,-171.2C134.176,-171.2 430.7776,-171.2 430.7776,-171.2"></path>
+</g> <!-- 2&#45;&gt;3 --> <g id="edge2" class="edge">
 <title>
 2-&gt;3
 </title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M430.7776,-171.2C430.7776,-171.2 727.025,-236.2 727.025,-236.2"></path> </g> <!-- 2&#45;&gt;5 --> <g id="edge3" class="edge">
+<path fill="none" stroke="#000000" stroke-width="2" d="M430.7776,-171.2C430.7776,-171.2 727.025,-236.2 727.025,-236.2"></path>
+</g> <!-- 2&#45;&gt;5 --> <g id="edge3" class="edge">
 <title>
 2-&gt;5
 </title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M430.7776,-171.2C430.7776,-171.2 727.025,-131.2 727.025,-131.2"></path> </g> <!-- 3&#45;&gt;4 --> <g id="edge4" class="edge">
+<path fill="none" stroke="#000000" stroke-width="2" d="M430.7776,-171.2C430.7776,-171.2 727.025,-131.2 727.025,-131.2"></path>
+</g> <!-- 3&#45;&gt;4 --> <g id="edge4" class="edge">
 <title>
 3-&gt;4
 </title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M727.025,-236.2C727.025,-236.2 1045.062,-261.2 1045.062,-261.2"></path> </g> <!-- 5&#45;&gt;6 --> <g id="edge5" class="edge">
+<path fill="none" stroke="#000000" stroke-width="2" d="M727.025,-236.2C727.025,-236.2 1045.062,-261.2 1045.062,-261.2"></path>
+</g> <!-- 5&#45;&gt;6 --> <g id="edge5" class="edge">
 <title>
 5-&gt;6
 </title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M727.025,-131.2C727.025,-131.2 1045.062,-81.2 1045.062,-81.2"></path> </g> <!-- 1 --> <g id="node1" class="node">
+<path fill="none" stroke="#000000" stroke-width="2" d="M727.025,-131.2C727.025,-131.2 1045.062,-81.2 1045.062,-81.2"></path>
+</g> <!-- 1 --> <g id="node1" class="node">
 <title>
 1
 </title>
-<path fill="#ffffff" stroke="#000000" d="M256.5282,-201.8013C256.5282,-201.8013 11.8238,-201.8013 11.8238,-201.8013 5.8238,-201.8013 -.1762,-195.8013 -.1762,-189.8013 -.1762,-189.8013 -.1762,-152.5987 -.1762,-152.5987 -.1762,-146.5987 5.8238,-140.5987 11.8238,-140.5987 11.8238,-140.5987 256.5282,-140.5987 256.5282,-140.5987 262.5282,-140.5987 268.5282,-146.5987 268.5282,-152.5987 268.5282,-152.5987 268.5282,-189.8013 268.5282,-189.8013 268.5282,-195.8013 262.5282,-201.8013 256.5282,-201.8013"></path> <text text-anchor="middle" x="134.176" y="-175.4" font-family="Arial" font-size="14.00" fill="#000000">We will use persuasive communication</text> <text text-anchor="middle" x="134.176" y="-158.6" font-family="Arial" font-size="14.00" fill="#000000">combined with self reevaluation.</text> </g> <!-- 2 --> <g id="node2" class="node">
+<path fill="#ffffff" stroke="#000000" d="M256.5282,-201.8013C256.5282,-201.8013 11.8238,-201.8013 11.8238,-201.8013 5.8238,-201.8013 -.1762,-195.8013 -.1762,-189.8013 -.1762,-189.8013 -.1762,-152.5987 -.1762,-152.5987 -.1762,-146.5987 5.8238,-140.5987 11.8238,-140.5987 11.8238,-140.5987 256.5282,-140.5987 256.5282,-140.5987 262.5282,-140.5987 268.5282,-146.5987 268.5282,-152.5987 268.5282,-152.5987 268.5282,-189.8013 268.5282,-189.8013 268.5282,-195.8013 262.5282,-201.8013 256.5282,-201.8013"></path>
+<text text-anchor="middle" x="134.176" y="-175.4" font-family="Arial" font-size="14.00" fill="#000000">We
+will use persuasive communication</text>
+<text text-anchor="middle" x="134.176" y="-158.6" font-family="Arial" font-size="14.00" fill="#000000">combined
+with self reevaluation.</text> </g> <!-- 2 -->
+<g id="node2" class="node">
 <title>
 2
 </title>
-<path fill="#ffffff" stroke="#000000" d="M545.1288,-210.601C545.1288,-210.601 316.4264,-210.601 316.4264,-210.601 310.4264,-210.601 304.4264,-204.601 304.4264,-198.601 304.4264,-198.601 304.4264,-143.799 304.4264,-143.799 304.4264,-137.799 310.4264,-131.799 316.4264,-131.799 316.4264,-131.799 545.1288,-131.799 545.1288,-131.799 551.1288,-131.799 557.1288,-137.799 557.1288,-143.799 557.1288,-143.799 557.1288,-198.601 557.1288,-198.601 557.1288,-204.601 551.1288,-210.601 545.1288,-210.601"></path> <text text-anchor="middle" x="430.7776" y="-183.8" font-family="Arial" font-size="14.00" fill="#000000">Persuasive communication and self</text> <text text-anchor="middle" x="430.7776" y="-167" font-family="Arial" font-size="14.00" fill="#000000">reevaluation are both BCPs that can</text> <text text-anchor="middle" x="430.7776" y="-150.2" font-family="Arial" font-size="14.00" fill="#000000">target attitudinal beliefs.</text> </g> <!-- 3 --> <g id="node3" class="node">
+<path fill="#ffffff" stroke="#000000" d="M545.1288,-210.601C545.1288,-210.601 316.4264,-210.601 316.4264,-210.601 310.4264,-210.601 304.4264,-204.601 304.4264,-198.601 304.4264,-198.601 304.4264,-143.799 304.4264,-143.799 304.4264,-137.799 310.4264,-131.799 316.4264,-131.799 316.4264,-131.799 545.1288,-131.799 545.1288,-131.799 551.1288,-131.799 557.1288,-137.799 557.1288,-143.799 557.1288,-143.799 557.1288,-198.601 557.1288,-198.601 557.1288,-204.601 551.1288,-210.601 545.1288,-210.601"></path>
+<text text-anchor="middle" x="430.7776" y="-183.8" font-family="Arial" font-size="14.00" fill="#000000">Persuasive
+communication and self</text>
+<text text-anchor="middle" x="430.7776" y="-167" font-family="Arial" font-size="14.00" fill="#000000">reevaluation
+are both BCPs that can</text>
+<text text-anchor="middle" x="430.7776" y="-150.2" font-family="Arial" font-size="14.00" fill="#000000">target
+attitudinal beliefs.</text> </g> <!-- 3 --> <g id="node3" class="node">
 <title>
 3
 </title>
-<path fill="#ffffff" stroke="#000000" d="M845.9067,-266.8013C845.9067,-266.8013 608.1433,-266.8013 608.1433,-266.8013 602.1433,-266.8013 596.1433,-260.8013 596.1433,-254.8013 596.1433,-254.8013 596.1433,-217.5987 596.1433,-217.5987 596.1433,-211.5987 602.1433,-205.5987 608.1433,-205.5987 608.1433,-205.5987 845.9067,-205.5987 845.9067,-205.5987 851.9067,-205.5987 857.9067,-211.5987 857.9067,-217.5987 857.9067,-217.5987 857.9067,-254.8013 857.9067,-254.8013 857.9067,-260.8013 851.9067,-266.8013 845.9067,-266.8013"></path> <text text-anchor="middle" x="727.025" y="-240.4" font-family="Arial" font-size="14.00" fill="#000000">Persuasive communication can target</text> <text text-anchor="middle" x="727.025" y="-223.6" font-family="Arial" font-size="14.00" fill="#000000">attitudinal beliefs.</text> </g> <!-- 4 --> <g id="node4" class="node">
+<path fill="#ffffff" stroke="#000000" d="M845.9067,-266.8013C845.9067,-266.8013 608.1433,-266.8013 608.1433,-266.8013 602.1433,-266.8013 596.1433,-260.8013 596.1433,-254.8013 596.1433,-254.8013 596.1433,-217.5987 596.1433,-217.5987 596.1433,-211.5987 602.1433,-205.5987 608.1433,-205.5987 608.1433,-205.5987 845.9067,-205.5987 845.9067,-205.5987 851.9067,-205.5987 857.9067,-211.5987 857.9067,-217.5987 857.9067,-217.5987 857.9067,-254.8013 857.9067,-254.8013 857.9067,-260.8013 851.9067,-266.8013 845.9067,-266.8013"></path>
+<text text-anchor="middle" x="727.025" y="-240.4" font-family="Arial" font-size="14.00" fill="#000000">Persuasive
+communication can target</text>
+<text text-anchor="middle" x="727.025" y="-223.6" font-family="Arial" font-size="14.00" fill="#000000">attitudinal
+beliefs.</text> </g> <!-- 4 --> <g id="node4" class="node">
 <title>
 4
 </title>
-<path fill="#ffffff" stroke="#000000" d="M1181.4927,-342.6005C1181.4927,-342.6005 908.6313,-342.6005 908.6313,-342.6005 902.6313,-342.6005 896.6313,-336.6005 896.6313,-330.6005 896.6313,-330.6005 896.6313,-191.7995 896.6313,-191.7995 896.6313,-185.7995 902.6313,-179.7995 908.6313,-179.7995 908.6313,-179.7995 1181.4927,-179.7995 1181.4927,-179.7995 1187.4927,-179.7995 1193.4927,-185.7995 1193.4927,-191.7995 1193.4927,-191.7995 1193.4927,-330.6005 1193.4927,-330.6005 1193.4927,-336.6005 1187.4927,-342.6005 1181.4927,-342.6005"></path> <text text-anchor="middle" x="1045.062" y="-315.8" font-family="Arial" font-size="14.00" fill="#000000">Kok, G., Gottlieb, N. H., Peters, G. J.</text> <text text-anchor="middle" x="1045.062" y="-299" font-family="Arial" font-size="14.00" fill="#000000">Y., Mullen, P. D., Parcel, G. S,</text> <text text-anchor="middle" x="1045.062" y="-282.2" font-family="Arial" font-size="14.00" fill="#000000">Ruiter, R. A., Fern ndez, M. E.,</text> <text text-anchor="middle" x="1045.062" y="-265.4" font-family="Arial" font-size="14.00" fill="#000000">Markham, C, Bartholomew, L. K. (2016) A</text> <text text-anchor="middle" x="1045.062" y="-248.6" font-family="Arial" font-size="14.00" fill="#000000">taxonomy of behaviour change methods an</text> <text text-anchor="middle" x="1045.062" y="-231.8" font-family="Arial" font-size="14.00" fill="#000000">Intervention Mapping approach. Health</text> <text text-anchor="middle" x="1045.062" y="-215" font-family="Arial" font-size="14.00" fill="#000000">Psychology Review, 10, 297 312. doi</text> <text text-anchor="middle" x="1045.062" y="-198.2" font-family="Arial" font-size="14.00" fill="#000000">10.1080/17437199.2015.1077155</text> </g> <!-- 5 --> <g id="node5" class="node">
+<path fill="#ffffff" stroke="#000000" d="M1181.4927,-342.6005C1181.4927,-342.6005 908.6313,-342.6005 908.6313,-342.6005 902.6313,-342.6005 896.6313,-336.6005 896.6313,-330.6005 896.6313,-330.6005 896.6313,-191.7995 896.6313,-191.7995 896.6313,-185.7995 902.6313,-179.7995 908.6313,-179.7995 908.6313,-179.7995 1181.4927,-179.7995 1181.4927,-179.7995 1187.4927,-179.7995 1193.4927,-185.7995 1193.4927,-191.7995 1193.4927,-191.7995 1193.4927,-330.6005 1193.4927,-330.6005 1193.4927,-336.6005 1187.4927,-342.6005 1181.4927,-342.6005"></path>
+<text text-anchor="middle" x="1045.062" y="-315.8" font-family="Arial" font-size="14.00" fill="#000000">Kok,
+G., Gottlieb, N. H., Peters, G. J.</text>
+<text text-anchor="middle" x="1045.062" y="-299" font-family="Arial" font-size="14.00" fill="#000000">Y.,
+Mullen, P. D., Parcel, G. S,</text>
+<text text-anchor="middle" x="1045.062" y="-282.2" font-family="Arial" font-size="14.00" fill="#000000">Ruiter,
+R. A., Fern ndez, M. E.,</text>
+<text text-anchor="middle" x="1045.062" y="-265.4" font-family="Arial" font-size="14.00" fill="#000000">Markham,
+C, Bartholomew, L. K. (2016) A</text>
+<text text-anchor="middle" x="1045.062" y="-248.6" font-family="Arial" font-size="14.00" fill="#000000">taxonomy
+of behaviour change methods an</text>
+<text text-anchor="middle" x="1045.062" y="-231.8" font-family="Arial" font-size="14.00" fill="#000000">Intervention
+Mapping approach. Health</text>
+<text text-anchor="middle" x="1045.062" y="-215" font-family="Arial" font-size="14.00" fill="#000000">Psychology
+Review, 10, 297 312. doi</text>
+<text text-anchor="middle" x="1045.062" y="-198.2" font-family="Arial" font-size="14.00" fill="#000000">10.1080/17437199.2015.1077155</text>
+</g> <!-- 5 --> <g id="node5" class="node">
 <title>
 5
 </title>
-<path fill="#ffffff" stroke="#000000" d="M848.6688,-161.8013C848.6688,-161.8013 605.3812,-161.8013 605.3812,-161.8013 599.3812,-161.8013 593.3812,-155.8013 593.3812,-149.8013 593.3812,-149.8013 593.3812,-112.5987 593.3812,-112.5987 593.3812,-106.5987 599.3812,-100.5987 605.3812,-100.5987 605.3812,-100.5987 848.6688,-100.5987 848.6688,-100.5987 854.6688,-100.5987 860.6688,-106.5987 860.6688,-112.5987 860.6688,-112.5987 860.6688,-149.8013 860.6688,-149.8013 860.6688,-155.8013 854.6688,-161.8013 848.6688,-161.8013"></path> <text text-anchor="middle" x="727.025" y="-135.4" font-family="Arial" font-size="14.00" fill="#000000">Self reevaluation can be used to target</text> <text text-anchor="middle" x="727.025" y="-118.6" font-family="Arial" font-size="14.00" fill="#000000">attitudinal beliefs.</text> </g> <!-- 6 --> <g id="node6" class="node">
+<path fill="#ffffff" stroke="#000000" d="M848.6688,-161.8013C848.6688,-161.8013 605.3812,-161.8013 605.3812,-161.8013 599.3812,-161.8013 593.3812,-155.8013 593.3812,-149.8013 593.3812,-149.8013 593.3812,-112.5987 593.3812,-112.5987 593.3812,-106.5987 599.3812,-100.5987 605.3812,-100.5987 605.3812,-100.5987 848.6688,-100.5987 848.6688,-100.5987 854.6688,-100.5987 860.6688,-106.5987 860.6688,-112.5987 860.6688,-112.5987 860.6688,-149.8013 860.6688,-149.8013 860.6688,-155.8013 854.6688,-161.8013 848.6688,-161.8013"></path>
+<text text-anchor="middle" x="727.025" y="-135.4" font-family="Arial" font-size="14.00" fill="#000000">Self
+reevaluation can be used to target</text>
+<text text-anchor="middle" x="727.025" y="-118.6" font-family="Arial" font-size="14.00" fill="#000000">attitudinal
+beliefs.</text> </g> <!-- 6 --> <g id="node6" class="node">
 <title>
 6
 </title>
-<path fill="#ffffff" stroke="#000000" d="M1181.4927,-162.6005C1181.4927,-162.6005 908.6313,-162.6005 908.6313,-162.6005 902.6313,-162.6005 896.6313,-156.6005 896.6313,-150.6005 896.6313,-150.6005 896.6313,-11.7995 896.6313,-11.7995 896.6313,-5.7995 902.6313,.2005 908.6313,.2005 908.6313,.2005 1181.4927,.2005 1181.4927,.2005 1187.4927,.2005 1193.4927,-5.7995 1193.4927,-11.7995 1193.4927,-11.7995 1193.4927,-150.6005 1193.4927,-150.6005 1193.4927,-156.6005 1187.4927,-162.6005 1181.4927,-162.6005"></path> <text text-anchor="middle" x="1045.062" y="-135.8" font-family="Arial" font-size="14.00" fill="#000000">Kok, G., Gottlieb, N. H., Peters, G. J.</text> <text text-anchor="middle" x="1045.062" y="-119" font-family="Arial" font-size="14.00" fill="#000000">Y., Mullen, P. D., Parcel, G. S,</text> <text text-anchor="middle" x="1045.062" y="-102.2" font-family="Arial" font-size="14.00" fill="#000000">Ruiter, R. A., Fern ndez, M. E.,</text> <text text-anchor="middle" x="1045.062" y="-85.4" font-family="Arial" font-size="14.00" fill="#000000">Markham, C, Bartholomew, L. K. (2016) A</text> <text text-anchor="middle" x="1045.062" y="-68.6" font-family="Arial" font-size="14.00" fill="#000000">taxonomy of behaviour change methods an</text> <text text-anchor="middle" x="1045.062" y="-51.8" font-family="Arial" font-size="14.00" fill="#000000">Intervention Mapping approach. Health</text> <text text-anchor="middle" x="1045.062" y="-35" font-family="Arial" font-size="14.00" fill="#000000">Psychology Review, 10, 297 312. doi</text> <text text-anchor="middle" x="1045.062" y="-18.2" font-family="Arial" font-size="14.00" fill="#000000">10.1080/17437199.2015.1077155</text> </g> </g>
+<path fill="#ffffff" stroke="#000000" d="M1181.4927,-162.6005C1181.4927,-162.6005 908.6313,-162.6005 908.6313,-162.6005 902.6313,-162.6005 896.6313,-156.6005 896.6313,-150.6005 896.6313,-150.6005 896.6313,-11.7995 896.6313,-11.7995 896.6313,-5.7995 902.6313,.2005 908.6313,.2005 908.6313,.2005 1181.4927,.2005 1181.4927,.2005 1187.4927,.2005 1193.4927,-5.7995 1193.4927,-11.7995 1193.4927,-11.7995 1193.4927,-150.6005 1193.4927,-150.6005 1193.4927,-156.6005 1187.4927,-162.6005 1181.4927,-162.6005"></path>
+<text text-anchor="middle" x="1045.062" y="-135.8" font-family="Arial" font-size="14.00" fill="#000000">Kok,
+G., Gottlieb, N. H., Peters, G. J.</text>
+<text text-anchor="middle" x="1045.062" y="-119" font-family="Arial" font-size="14.00" fill="#000000">Y.,
+Mullen, P. D., Parcel, G. S,</text>
+<text text-anchor="middle" x="1045.062" y="-102.2" font-family="Arial" font-size="14.00" fill="#000000">Ruiter,
+R. A., Fern ndez, M. E.,</text>
+<text text-anchor="middle" x="1045.062" y="-85.4" font-family="Arial" font-size="14.00" fill="#000000">Markham,
+C, Bartholomew, L. K. (2016) A</text>
+<text text-anchor="middle" x="1045.062" y="-68.6" font-family="Arial" font-size="14.00" fill="#000000">taxonomy
+of behaviour change methods an</text>
+<text text-anchor="middle" x="1045.062" y="-51.8" font-family="Arial" font-size="14.00" fill="#000000">Intervention
+Mapping approach. Health</text>
+<text text-anchor="middle" x="1045.062" y="-35" font-family="Arial" font-size="14.00" fill="#000000">Psychology
+Review, 10, 297 312. doi</text>
+<text text-anchor="middle" x="1045.062" y="-18.2" font-family="Arial" font-size="14.00" fill="#000000">10.1080/17437199.2015.1077155</text>
+</g> </g>
 </svg>
 </div>
 <div style="width:800px">
@@ -505,60 +960,111 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <title>
 %0
 </title>
-<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-212.2 1203.4456,-212.2 1203.4456,4 -4,4"></polygon> <!-- 1&#45;&gt;2 --> <g id="edge1" class="edge">
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-212.2 1203.4456,-212.2 1203.4456,4 -4,4"></polygon>
+<!-- 1&#45;&gt;2 --> <g id="edge1" class="edge">
 <title>
 1-&gt;2
 </title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M129.5252,-78.4C129.5252,-78.4 437.4059,-78.4 437.4059,-78.4"></path> </g> <!-- 2&#45;&gt;3 --> <g id="edge2" class="edge">
+<path fill="none" stroke="#000000" stroke-width="2" d="M129.5252,-78.4C129.5252,-78.4 437.4059,-78.4 437.4059,-78.4"></path>
+</g> <!-- 2&#45;&gt;3 --> <g id="edge2" class="edge">
 <title>
 2-&gt;3
 </title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M437.4059,-78.4C437.4059,-78.4 749.1793,-126.4 749.1793,-126.4"></path> </g> <!-- 2&#45;&gt;5 --> <g id="edge3" class="edge">
+<path fill="none" stroke="#000000" stroke-width="2" d="M437.4059,-78.4C437.4059,-78.4 749.1793,-126.4 749.1793,-126.4"></path>
+</g> <!-- 2&#45;&gt;5 --> <g id="edge3" class="edge">
 <title>
 2-&gt;5
 </title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M437.4059,-78.4C437.4059,-78.4 749.1793,-38.4 749.1793,-38.4"></path> </g> <!-- 3&#45;&gt;4 --> <g id="edge4" class="edge">
+<path fill="none" stroke="#000000" stroke-width="2" d="M437.4059,-78.4C437.4059,-78.4 749.1793,-38.4 749.1793,-38.4"></path>
+</g> <!-- 3&#45;&gt;4 --> <g id="edge4" class="edge">
 <title>
 3-&gt;4
 </title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M749.1793,-126.4C749.1793,-126.4 1059.0214,-135.4 1059.0214,-135.4"></path> </g> <!-- 5&#45;&gt;6 --> <g id="edge5" class="edge">
+<path fill="none" stroke="#000000" stroke-width="2" d="M749.1793,-126.4C749.1793,-126.4 1059.0214,-135.4 1059.0214,-135.4"></path>
+</g> <!-- 5&#45;&gt;6 --> <g id="edge5" class="edge">
 <title>
 5-&gt;6
 </title>
-<path fill="none" stroke="#000000" stroke-width="2" d="M749.1793,-38.4C749.1793,-38.4 1059.0214,-22.4 1059.0214,-22.4"></path> </g> <!-- 1 --> <g id="node1" class="node">
+<path fill="none" stroke="#000000" stroke-width="2" d="M749.1793,-38.4C749.1793,-38.4 1059.0214,-22.4 1059.0214,-22.4"></path>
+</g> <!-- 1 --> <g id="node1" class="node">
 <title>
 1
 </title>
-<path fill="#ffffff" stroke="#000000" d="M247.0756,-117.801C247.0756,-117.801 11.9748,-117.801 11.9748,-117.801 5.9748,-117.801 -.0252,-111.801 -.0252,-105.801 -.0252,-105.801 -.0252,-50.999 -.0252,-50.999 -.0252,-44.999 5.9748,-38.999 11.9748,-38.999 11.9748,-38.999 247.0756,-38.999 247.0756,-38.999 253.0756,-38.999 259.0756,-44.999 259.0756,-50.999 259.0756,-50.999 259.0756,-105.801 259.0756,-105.801 259.0756,-111.801 253.0756,-117.801 247.0756,-117.801"></path> <text text-anchor="middle" x="129.5252" y="-91" font-family="Arial" font-size="14.00" fill="#000000">We will target the expectation that</text> <text text-anchor="middle" x="129.5252" y="-74.2" font-family="Arial" font-size="14.00" fill="#000000">with a higher dose, people remember</text> <text text-anchor="middle" x="129.5252" y="-57.4" font-family="Arial" font-size="14.00" fill="#000000">less.</text> </g> <!-- 2 --> <g id="node2" class="node">
+<path fill="#ffffff" stroke="#000000" d="M247.0756,-117.801C247.0756,-117.801 11.9748,-117.801 11.9748,-117.801 5.9748,-117.801 -.0252,-111.801 -.0252,-105.801 -.0252,-105.801 -.0252,-50.999 -.0252,-50.999 -.0252,-44.999 5.9748,-38.999 11.9748,-38.999 11.9748,-38.999 247.0756,-38.999 247.0756,-38.999 253.0756,-38.999 259.0756,-44.999 259.0756,-50.999 259.0756,-50.999 259.0756,-105.801 259.0756,-105.801 259.0756,-111.801 253.0756,-117.801 247.0756,-117.801"></path>
+<text text-anchor="middle" x="129.5252" y="-91" font-family="Arial" font-size="14.00" fill="#000000">We
+will target the expectation that</text>
+<text text-anchor="middle" x="129.5252" y="-74.2" font-family="Arial" font-size="14.00" fill="#000000">with
+a higher dose, people remember</text>
+<text text-anchor="middle" x="129.5252" y="-57.4" font-family="Arial" font-size="14.00" fill="#000000">less.</text>
+</g> <!-- 2 --> <g id="node2" class="node">
 <title>
 2
 </title>
-<path fill="#ffffff" stroke="#000000" d="M567.617,-117.801C567.617,-117.801 307.1948,-117.801 307.1948,-117.801 301.1948,-117.801 295.1948,-111.801 295.1948,-105.801 295.1948,-105.801 295.1948,-50.999 295.1948,-50.999 295.1948,-44.999 301.1948,-38.999 307.1948,-38.999 307.1948,-38.999 567.617,-38.999 567.617,-38.999 573.617,-38.999 579.617,-44.999 579.617,-50.999 579.617,-50.999 579.617,-105.801 579.617,-105.801 579.617,-111.801 573.617,-117.801 567.617,-117.801"></path> <text text-anchor="middle" x="437.4059" y="-91" font-family="Arial" font-size="14.00" fill="#000000">People simultaneously want to remember</text> <text text-anchor="middle" x="437.4059" y="-74.2" font-family="Arial" font-size="14.00" fill="#000000">more, but realise they remember less if</text> <text text-anchor="middle" x="437.4059" y="-57.4" font-family="Arial" font-size="14.00" fill="#000000">they use a higher dose.</text> </g> <!-- 3 --> <g id="node3" class="node">
+<path fill="#ffffff" stroke="#000000" d="M567.617,-117.801C567.617,-117.801 307.1948,-117.801 307.1948,-117.801 301.1948,-117.801 295.1948,-111.801 295.1948,-105.801 295.1948,-105.801 295.1948,-50.999 295.1948,-50.999 295.1948,-44.999 301.1948,-38.999 307.1948,-38.999 307.1948,-38.999 567.617,-38.999 567.617,-38.999 573.617,-38.999 579.617,-44.999 579.617,-50.999 579.617,-50.999 579.617,-105.801 579.617,-105.801 579.617,-111.801 573.617,-117.801 567.617,-117.801"></path>
+<text text-anchor="middle" x="437.4059" y="-91" font-family="Arial" font-size="14.00" fill="#000000">People
+simultaneously want to remember</text>
+<text text-anchor="middle" x="437.4059" y="-74.2" font-family="Arial" font-size="14.00" fill="#000000">more,
+but realise they remember less if</text>
+<text text-anchor="middle" x="437.4059" y="-57.4" font-family="Arial" font-size="14.00" fill="#000000">they
+use a higher dose.</text> </g> <!-- 3 --> <g id="node3" class="node">
 <title>
 3
 </title>
-<path fill="#ffffff" stroke="#000000" d="M870.5152,-157.0013C870.5152,-157.0013 627.8434,-157.0013 627.8434,-157.0013 621.8434,-157.0013 615.8434,-151.0013 615.8434,-145.0013 615.8434,-145.0013 615.8434,-107.7987 615.8434,-107.7987 615.8434,-101.7987 621.8434,-95.7987 627.8434,-95.7987 627.8434,-95.7987 870.5152,-95.7987 870.5152,-95.7987 876.5152,-95.7987 882.5152,-101.7987 882.5152,-107.7987 882.5152,-107.7987 882.5152,-145.0013 882.5152,-145.0013 882.5152,-151.0013 876.5152,-157.0013 870.5152,-157.0013"></path> <text text-anchor="middle" x="749.1793" y="-130.6" font-family="Arial" font-size="14.00" fill="#000000">People expect to remember less afting</text> <text text-anchor="middle" x="749.1793" y="-113.8" font-family="Arial" font-size="14.00" fill="#000000">using a high dose of ecstasy.</text> </g> <!-- 4 --> <g id="node4" class="node">
+<path fill="#ffffff" stroke="#000000" d="M870.5152,-157.0013C870.5152,-157.0013 627.8434,-157.0013 627.8434,-157.0013 621.8434,-157.0013 615.8434,-151.0013 615.8434,-145.0013 615.8434,-145.0013 615.8434,-107.7987 615.8434,-107.7987 615.8434,-101.7987 621.8434,-95.7987 627.8434,-95.7987 627.8434,-95.7987 870.5152,-95.7987 870.5152,-95.7987 876.5152,-95.7987 882.5152,-101.7987 882.5152,-107.7987 882.5152,-107.7987 882.5152,-145.0013 882.5152,-145.0013 882.5152,-151.0013 876.5152,-157.0013 870.5152,-157.0013"></path>
+<text text-anchor="middle" x="749.1793" y="-130.6" font-family="Arial" font-size="14.00" fill="#000000">People
+expect to remember less afting</text>
+<text text-anchor="middle" x="749.1793" y="-113.8" font-family="Arial" font-size="14.00" fill="#000000">using
+a high dose of ecstasy.</text> </g> <!-- 4 -->
+<g id="node4" class="node">
 <title>
 4
 </title>
-<path fill="#ffffff" stroke="#000000" d="M1187.3698,-208.0005C1187.3698,-208.0005 930.673,-208.0005 930.673,-208.0005 924.673,-208.0005 918.673,-202.0005 918.673,-196.0005 918.673,-196.0005 918.673,-74.7995 918.673,-74.7995 918.673,-68.7995 924.673,-62.7995 930.673,-62.7995 930.673,-62.7995 1187.3698,-62.7995 1187.3698,-62.7995 1193.3698,-62.7995 1199.3698,-68.7995 1199.3698,-74.7995 1199.3698,-74.7995 1199.3698,-196.0005 1199.3698,-196.0005 1199.3698,-202.0005 1193.3698,-208.0005 1187.3698,-208.0005"></path> <text text-anchor="middle" x="1059.0214" y="-181.6" font-family="Arial" font-size="14.00" fill="#000000">Crutzen, R., Peters, G. J. Y., Noijen,</text> <text text-anchor="middle" x="1059.0214" y="-164.8" font-family="Arial" font-size="14.00" fill="#000000">J. (2017) Using Confidence Interval</text> <text text-anchor="middle" x="1059.0214" y="-148" font-family="Arial" font-size="14.00" fill="#000000">Based Estimation of Relevance to Select</text> <text text-anchor="middle" x="1059.0214" y="-131.2" font-family="Arial" font-size="14.00" fill="#000000">Social Cognitive Determinants for</text> <text text-anchor="middle" x="1059.0214" y="-114.4" font-family="Arial" font-size="14.00" fill="#000000">Behavior Change Interventions.</text> <text text-anchor="middle" x="1059.0214" y="-97.6" font-family="Arial" font-size="14.00" fill="#000000">Frontiers in Public Health, 5, 165. doi</text> <text text-anchor="middle" x="1059.0214" y="-80.8" font-family="Arial" font-size="14.00" fill="#000000">10.3389/fpubh.2017.00165</text> </g> <!-- 5 --> <g id="node5" class="node">
+<path fill="#ffffff" stroke="#000000" d="M1187.3698,-208.0005C1187.3698,-208.0005 930.673,-208.0005 930.673,-208.0005 924.673,-208.0005 918.673,-202.0005 918.673,-196.0005 918.673,-196.0005 918.673,-74.7995 918.673,-74.7995 918.673,-68.7995 924.673,-62.7995 930.673,-62.7995 930.673,-62.7995 1187.3698,-62.7995 1187.3698,-62.7995 1193.3698,-62.7995 1199.3698,-68.7995 1199.3698,-74.7995 1199.3698,-74.7995 1199.3698,-196.0005 1199.3698,-196.0005 1199.3698,-202.0005 1193.3698,-208.0005 1187.3698,-208.0005"></path>
+<text text-anchor="middle" x="1059.0214" y="-181.6" font-family="Arial" font-size="14.00" fill="#000000">Crutzen,
+R., Peters, G. J. Y., Noijen,</text>
+<text text-anchor="middle" x="1059.0214" y="-164.8" font-family="Arial" font-size="14.00" fill="#000000">J.
+(2017) Using Confidence Interval</text>
+<text text-anchor="middle" x="1059.0214" y="-148" font-family="Arial" font-size="14.00" fill="#000000">Based
+Estimation of Relevance to Select</text>
+<text text-anchor="middle" x="1059.0214" y="-131.2" font-family="Arial" font-size="14.00" fill="#000000">Social
+Cognitive Determinants for</text>
+<text text-anchor="middle" x="1059.0214" y="-114.4" font-family="Arial" font-size="14.00" fill="#000000">Behavior
+Change Interventions.</text>
+<text text-anchor="middle" x="1059.0214" y="-97.6" font-family="Arial" font-size="14.00" fill="#000000">Frontiers
+in Public Health, 5, 165. doi</text>
+<text text-anchor="middle" x="1059.0214" y="-80.8" font-family="Arial" font-size="14.00" fill="#000000">10.3389/fpubh.2017.00165</text>
+</g> <!-- 5 --> <g id="node5" class="node">
 <title>
 5
 </title>
-<path fill="#ffffff" stroke="#000000" d="M868.6049,-69.0013C868.6049,-69.0013 629.7537,-69.0013 629.7537,-69.0013 623.7537,-69.0013 617.7537,-63.0013 617.7537,-57.0013 617.7537,-57.0013 617.7537,-19.7987 617.7537,-19.7987 617.7537,-13.7987 623.7537,-7.7987 629.7537,-7.7987 629.7537,-7.7987 868.6049,-7.7987 868.6049,-7.7987 874.6049,-7.7987 880.6049,-13.7987 880.6049,-19.7987 880.6049,-19.7987 880.6049,-57.0013 880.6049,-57.0013 880.6049,-63.0013 874.6049,-69.0013 868.6049,-69.0013"></path> <text text-anchor="middle" x="749.1793" y="-42.6" font-family="Arial" font-size="14.00" fill="#000000">People prefer to remember more after</text> <text text-anchor="middle" x="749.1793" y="-25.8" font-family="Arial" font-size="14.00" fill="#000000">having used ecstasy.</text> </g> <!-- 6 --> <g id="node6" class="node">
+<path fill="#ffffff" stroke="#000000" d="M868.6049,-69.0013C868.6049,-69.0013 629.7537,-69.0013 629.7537,-69.0013 623.7537,-69.0013 617.7537,-63.0013 617.7537,-57.0013 617.7537,-57.0013 617.7537,-19.7987 617.7537,-19.7987 617.7537,-13.7987 623.7537,-7.7987 629.7537,-7.7987 629.7537,-7.7987 868.6049,-7.7987 868.6049,-7.7987 874.6049,-7.7987 880.6049,-13.7987 880.6049,-19.7987 880.6049,-19.7987 880.6049,-57.0013 880.6049,-57.0013 880.6049,-63.0013 874.6049,-69.0013 868.6049,-69.0013"></path>
+<text text-anchor="middle" x="749.1793" y="-42.6" font-family="Arial" font-size="14.00" fill="#000000">People
+prefer to remember more after</text>
+<text text-anchor="middle" x="749.1793" y="-25.8" font-family="Arial" font-size="14.00" fill="#000000">having
+used ecstasy.</text> </g> <!-- 6 --> <g id="node6" class="node">
 <title>
 6
 </title>
-<path fill="#ffffff" stroke="#000000" d="M1181.4199,-44.7004C1181.4199,-44.7004 936.6229,-44.7004 936.6229,-44.7004 930.6229,-44.7004 924.6229,-38.7004 924.6229,-32.7004 924.6229,-32.7004 924.6229,-12.0996 924.6229,-12.0996 924.6229,-6.0996 930.6229,-.0996 936.6229,-.0996 936.6229,-.0996 1181.4199,-.0996 1181.4199,-.0996 1187.4199,-.0996 1193.4199,-6.0996 1193.4199,-12.0996 1193.4199,-12.0996 1193.4199,-32.7004 1193.4199,-32.7004 1193.4199,-38.7004 1187.4199,-44.7004 1181.4199,-44.7004"></path> <text text-anchor="middle" x="1059.0214" y="-18.2" font-family="Arial" font-size="14.00" fill="#000000">Party Panel report for Party Panel 15.1</text> </g> </g>
+<path fill="#ffffff" stroke="#000000" d="M1181.4199,-44.7004C1181.4199,-44.7004 936.6229,-44.7004 936.6229,-44.7004 930.6229,-44.7004 924.6229,-38.7004 924.6229,-32.7004 924.6229,-32.7004 924.6229,-12.0996 924.6229,-12.0996 924.6229,-6.0996 930.6229,-.0996 936.6229,-.0996 936.6229,-.0996 1181.4199,-.0996 1181.4199,-.0996 1187.4199,-.0996 1193.4199,-6.0996 1193.4199,-12.0996 1193.4199,-12.0996 1193.4199,-32.7004 1193.4199,-32.7004 1193.4199,-38.7004 1187.4199,-44.7004 1181.4199,-44.7004"></path>
+<text text-anchor="middle" x="1059.0214" y="-18.2" font-family="Arial" font-size="14.00" fill="#000000">Party
+Panel report for Party Panel 15.1</text> </g> </g>
 </svg>
 </div>
 <!----------------------------------------------------------------------------->
 </div>
 <div id="references" class="section level1">
 <h1>References</h1>
-<p>Crutzen, R., Peters, G.-J. Y., &amp; Noijen, J. (2017) Using Confidence Interval-Based Estimation of Relevance to Select Social-Cognitive Determinants for Behavior Change Interventions. <em>Frontiers in Public Health, 5</em>, 165. <a href="https://doi.org/10.3389/fpubh.2017.00165" class="uri">https://doi.org/10.3389/fpubh.2017.00165</a></p>
-<p>Kok, G., Gottlieb, N. H., Peters, G.-J. Y., Mullen, P. D., Parcel, G. S, Ruiter, R. A., Fernández, M. E., Markham, C, Bartholomew, L. K. (2016) A taxonomy of behaviour change methods: an Intervention Mapping approach. <em>Health Psychology Review, 10</em>, 297-312. <a href="https://doi.org/10.1080/17437199.2015.1077155" class="uri">https://doi.org/10.1080/17437199.2015.1077155</a></p>
-<p>Leventhal, H. (1970) Findings and Theory in the Study of Fear Communications. <em>Advances in Experimental Social Psychology, 5</em>, 119-186. <a href="https://doi.org/10.1016/S0065-2601(08)60091-X" class="uri">https://doi.org/10.1016/S0065-2601(08)60091-X</a></p>
+<p>Crutzen, R., Peters, G.-J. Y., &amp; Noijen, J. (2017) Using
+Confidence Interval-Based Estimation of Relevance to Select
+Social-Cognitive Determinants for Behavior Change Interventions.
+<em>Frontiers in Public Health, 5</em>, 165. <a href="https://doi.org/10.3389/fpubh.2017.00165" class="uri">https://doi.org/10.3389/fpubh.2017.00165</a></p>
+<p>Kok, G., Gottlieb, N. H., Peters, G.-J. Y., Mullen, P. D., Parcel, G.
+S, Ruiter, R. A., Fernández, M. E., Markham, C, Bartholomew, L. K.
+(2016) A taxonomy of behaviour change methods: an Intervention Mapping
+approach. <em>Health Psychology Review, 10</em>, 297-312. <a href="https://doi.org/10.1080/17437199.2015.1077155" class="uri">https://doi.org/10.1080/17437199.2015.1077155</a></p>
+<p>Leventhal, H. (1970) Findings and Theory in the Study of Fear
+Communications. <em>Advances in Experimental Social Psychology, 5</em>,
+119-186. <a href="https://doi.org/10.1016/S0065-2601(08)60091-X" class="uri">https://doi.org/10.1016/S0065-2601(08)60091-X</a></p>
 </div>
 
 

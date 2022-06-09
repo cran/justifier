@@ -42,14 +42,32 @@ The following options can be set:
 
 \describe{
 
-\item{}{The name of the column
-with the effect size values.}
+\item{regExReplacements}{Default regex replacements when sanitizing for DiagrammeR}
 
-\item{}{The name of the column
-with the effect size variance.}
+\item{weight_fieldName}{When creating the diagram showing the justification for a
+decision, the name of the field with the weight.}
 
-\item{}{The name of the column
-with the missing values.}
+\item{negWeight_color}{When creating the diagram showing the justification for a
+decision, the colour to use for edges with negative weights}
+
+\item{posWeight_color}{When creating the diagram showing the justification for a
+decision, the colour to use for edges with positive weights}
+
+\item{node_color}{When creating the diagram showing the justification for a
+decision, the color for nodes}
+
+\item{edge_color}{When creating the diagram showing the justification for a
+decision, the color for edges}
+
+\item{penwidth}{When creating the diagram showing the justification for a
+decision, the pen widht}
+
+\item{workspace_id}{The default identifier for the workspace (when
+nothing else is specified)}
+
+\item{workspace}{The name of the default workspace}
+
+\item{silent}{Whether to be chatty or silent}
 
 }
 }

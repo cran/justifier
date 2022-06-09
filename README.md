@@ -11,7 +11,7 @@
 status](https://gitlab.com/r-packages/justifier/badges/prod/pipeline.svg)](https://gitlab.com/r-packages/justifier/-/commits/prod)
 
 [![Coverage
-status](https://codecov.io/gl/r-packages/justifier/branch/prod/graph/badge.svg)](https://codecov.io/gl/r-packages/justifier?branch=prod)
+status](https://codecov.io/gl/r-packages/justifier/branch/prod/graph/badge.svg)](https://app.codecov.io/gl/r-packages/justifier?branch=prod)
 
 <!-- [![Dependency status](https://tinyverse.netlify.com/badge/justifier)](https://CRAN.R-project.org/package=justifier) -->
 <!-- badges: end -->

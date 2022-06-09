@@ -21,7 +21,7 @@ The `justifier` package offers a flexible compromise that enables thorough docum
 In `justifier`, four types of information are distinguished:
 
 - `source`: A `source` is a document or other resource the contains more information about something. Commonly, `source`s will be journal articles, books, or reports, but they can be anything really.
-- `assertion`: An `assertion` is a statement that something is the case. An `assertion` will, if possible, be based on one or more `source`s. In `justifier`, an `assertion` is very similar to `assertion`s in the [nanopublication ontology](http://nanopub.org/wordpress/), in which case one could compare the `assertion`'s `description` plus the referenced `source`s or other `justifer` elements as its provenance.
+- `assertion`: An `assertion` is a statement that something is the case. An `assertion` will, if possible, be based on one or more `source`s. In `justifier`, an `assertion` is very similar to `assertion`s in the [nanopublication ontology](https://nanopub.org/wordpress/), in which case one could compare the `assertion`'s `description` plus the referenced `source`s or other `justifer` elements as its provenance.
 - `justification`: A `justification` is a justification of something or other. Generally, `justification`s will be used to justify `decision`s, but sometimes, you may want to justify something without it being tied to a specific decision.
 - `decision`: A `decision` is an explicit choice between one or more implicit or explicitly listed options. A `decision` should have one or more `justification`s which are each ideally based on one or more `assertion`s that each reference one or more `source`s.
 
