@@ -8,7 +8,7 @@
 #' YAML fragments containing the justifications using
 #' [yum::load_yaml_fragments()] and then parses the justifications
 #' into a visual representation as a
-#' [ggplot2::ggplot] graph and Markdown documents with
+#' [DiagrammeR::DiagrammeR] graph and Markdown documents with
 #' overviews.
 #'
 #' @param text,file As `text` or `file`, you can specify a `file` to read with
@@ -52,7 +52,7 @@
 #' @rdname load_justifications
 #' @aliases load_justifications load_justifications_dir print.justifications plot.justifications
 #'
-#' @return An object with the [ggplot2::ggplot] graph stored
+#' @return An object with the [DiagrammeR::DiagrammeR] graph stored
 #' in `output$graph` and the overview in `output$overview`.
 #'
 #' @examples
